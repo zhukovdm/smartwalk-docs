@@ -6,16 +6,9 @@ Once data are ready, read [**Running the app**](#running-the-app) to learn how t
 
 If something is broken or not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
 
-## Data preparation
+## Prerequisites
 
-This section explains how to prepare data for two system components: the [database](#entity-store-and-index) (entity store and index) and the [routing engine](#routing-engine).
-
-!!! warning
-    The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
-
-### Prerequisites
-
-Ensure that the following programs are installed on the target system.
+Ensure that the following programs are installed on the target system:
 
 - `bash`
 - `docker`
@@ -30,16 +23,29 @@ Ensure that the following programs are installed on the target system.
 
 **ADVICE:** All docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly, see details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
-### Environment
-
-Clone the repository and navigate to the `data` folder:
+Clone the repository and navigate to its root folder:
 
 ```bash
 git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
-cd ./smartwalk/data/
+cd ./smartwalk/
 ```
 
-Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. As an example, the following command makes use of the `wget` utility to download the latest dump of the Czech Republic:
+## Data preparation
+
+This section explains how to prepare data for two system components: the [database](#entity-store-and-index) (entity store and index) and the [routing engine](#routing-engine).
+
+!!! warning
+    The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
+
+### Environment
+
+Navigate to the `data` folder, assuming You are in the root folder of the `smartwalk` repository:
+
+```bash
+cd ./data/
+```
+
+Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. As an example, the following command makes use of the `wget` utility to obtain the latest dump of the Czech Republic:
 
 ```bash
 wget \
@@ -159,7 +165,7 @@ make dump
 
 The command creates `keyword.txt` and `place.txt` in `./assets/dump/`.
 
-If necessary, archive files for publishing. Don't forget to replace placeholders enclosed in `[]`.
+If necessary, archive files for publishing:
 
 ```bash
 cd ./assets/dump/
@@ -187,54 +193,59 @@ tar -xzf smartwalk-[kind]-[date].tar.gz
 
 ## Running the app
 
-Navigate to the root folder of the `smartwalk` repository with `Makefile`.
-
-| Container | Role                        |
-|-----------|-----------------------------|
-| proxy     | Reverse proxy, static files |
-| backend   | Application logic           |
-| database  | Entity store and index      |
-| routing   | Routing engine              |
-
-### Environment variables
-
-`SMARTWALK_MONGO_CONN_STR`, `SMARTWALK_OSRM_BASE_URL`,
-
-http://localhost:5017/swagger/index.html
+The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the `smartwalk` repository and all relevant data have been extracted or restored and are available in their respective folders.
 
 ### Development environment
 
-| Container | Expose          |
-|-----------|-----------------|
-| proxy     | localhost:3000  |
-| backend   | -               |
-| database  | localhost:27017 |
-| routing   | -               |
+This environment is intended primarily for developers and testers. It enables starting and stopping parts of the system independently.
 
-For convenience, this environment is loosely coupled. Every component can be started separately. The only exception is that `backend` fails to start without `database`.
+There are four system components involved in the setup: frontend, backend, database, and routing engine. The first two items run directly in the terminal, while the last two are docker containers. The table below summarizes their roles and port mapping.
 
-Start the database:
+| Component | Ports             | Role                                  |
+|-----------|-------------------|---------------------------------------|
+| database  | localhost:27017   | Entity store and index                |
+| routing   | localhost:5000    | Routing engine                        |
+| backend   | localhost:5017    | Application logic (<s>hot reload</s>) |
+| frontend  | localhost:3000    | Static files (hot reload)             |
 
-```bash
+!!! note
+    For convenience, all components can be started and stopped directly from the `smartwalk` root folder. Please refer to [Makefile](https://github.com/zhukovdm/smartwalk/blob/main/Makefile). Recipe names follow the pattern `[component_name]-dev[-stop]`.
 
-```
+#### Database
 
-Start the frontend:
+Start and stop an instance of database using `database-dev[-stop]` from `Makefile`.
 
-```bash
-?
-```
+#### Routing engine
+
+Start and stop an instance of routing engine using `routing-dev[-stop]` from `Makefile`.
+
+Set `OSRM_REGION_FILE` in [.env.development](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.development) to load a region other than the Czech Republic.
+
+#### Backend
+
+The project is located in `./app/backend/`. Run `dotnet run` from there to start the backend in the terminal, and stop it by pressing `Ctrl+C`. Read more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/README.md).
+
+The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to run dependencies on different ports.
+
+!!! info
+    This component requires `database` to be up and running. Otherwise, it fails to start.
+
+#### Frontend
+
+The file [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/README.md) specifies additional commands for testing
+
+Run `make frontend-dev` from the root folder of the repository to start the frontend in the terminal, and stop it by pressing `Ctrl+C`.
 
 ### Production environment
 
 This environment is a tightly coupled bundle consisting of four interconnected containers.
 
-| Container | Exposed         | Role                        |
-|-----------|-----------------|-----------------------------|
-| proxy     | localhost:3000  | Reverse proxy, static files |
-| backend   | -               | Application logic           |
-| database  | localhost:27017 | Entity store and index      |
-| routing   | -               | Routing engine              |
+| Container | Expose            | Role                          |
+|-----------|-------------------|-------------------------------|
+| database  | localhost:27017   | Entity store and index        |
+| routing   | -                 | Routing engine                |
+| backend   | -                 | Application logic             |
+| proxy     | localhost:3000    | Reverse proxy, static files   |
 
 !!! note
     The `database` container exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
