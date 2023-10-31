@@ -225,20 +225,20 @@ Set `OSRM_REGION_FILE` in [.env.development](https://github.com/zhukovdm/smartwa
 
 The project is located in `./app/backend/`. Run `dotnet run` from there to start the backend in the terminal, and stop it by pressing `Ctrl+C`. Read more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/README.md).
 
-The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to run dependencies on different ports.
-
 !!! info
     This component requires `database` to be up and running. Otherwise, it fails to start.
 
+The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to run dependencies on different ports.
+
 #### Frontend
 
-The file [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/README.md) specifies additional commands for testing
+Find the project in `./app/frontend/`. Run `npm start` from there to start the frontend in the terminal, and stop it by pressing `Ctrl+C`. Learn more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/README.md).
 
-Run `make frontend-dev` from the root folder of the repository to start the frontend in the terminal, and stop it by pressing `Ctrl+C`.
+The source code uses `REACT_APP_SMARTWALK_API_ORIGIN` environment variable. Set its value in [.env.development](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/.env.development) if you wish to run backend on another port.
 
 ### Production environment
 
-This environment is a tightly coupled bundle consisting of four interconnected containers.
+This environment is a tightly coupled bundle consisting of four interconnected docker containers.
 
 | Container | Expose            | Role                          |
 |-----------|-------------------|-------------------------------|
@@ -248,21 +248,17 @@ This environment is a tightly coupled bundle consisting of four interconnected c
 | proxy     | localhost:3000    | Reverse proxy, static files   |
 
 !!! note
-    The `database` container exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
+    The `database` exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
 
-Start production environment:
-
-```bash
-make prod
-```
-
-**ADVICE:** All containers implement healthcheck.
-
-Stop production environment:
+Start and stop production environment from the root folder of the repo:
 
 ```bash
-make prod-stop
+make prod[-stop]
 ```
+
+**ADVICE:** All containers implement healthcheck, run `docker container ls` to see their state.
+
+All environment variables are defined in the same [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
 
 ## Troubleshooting
 
