@@ -8,7 +8,7 @@ If something is broken or not working as expected, you might find [**Troubleshoo
 
 ## Data preparation
 
-This section explains how to prepare data for two system components: the [database](#entity-storage-and-index) and the [routing engine](#routing-engine).
+This section explains how to prepare data for two system components: the [database](#entity-store-and-index) (entity store and index) and the [routing engine](#routing-engine).
 
 !!! warning
     The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
@@ -69,7 +69,7 @@ The command pulls [this docker image](https://hub.docker.com/r/osrm/osrm-backend
 
 **ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
 
-### Entity storage and index
+### Entity store and index
 
 Start up a [containerized](https://hub.docker.com/_/mongo/) database instance:
 
@@ -139,45 +139,62 @@ docker compose -f docker-compose.yaml down
 
 All relevant data are stored in `./assets/database`.
 
-### Idempotent updates
+### Incremental updates
 
-The system supports [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions) updates to incorporate new versions of datasets.
+The system supports incremental updates, acting as an [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions) function, to incorporate new versions of datasets.
 
-It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update defined properties without replacing entities existing in the database.
+It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update only defined properties without replacing entities.
 
 `advice` should be re-generated whenever the database state is altered.
 
 ![command dependencies](./img/data-prep-deps.drawio.svg)
 
-### Dumping and restoring
+### Dumping database
 
-[place.json](https://www.dropbox.com/scl/fi/25e8u3t5mdx37qn3ncd7t/place.json?rlkey=58cw4mdcsyz3z77tuzzu7qspo&dl=0) and [keyword.json](https://www.dropbox.com/scl/fi/cdh3zngnybptvn0goc46e/keyword.json?rlkey=5655oq6lcom7fjjo28650tbbb&dl=0)
-
-Once two previous phases are done, the `./assets/` folder contains all data necessary for running an instance of the application. Create self-contained docker images to optimize and simplify testing.
+Create a dump of the current database state and archive files:
 
 ```bash
-docker build -f ./Dockerfile.database -t smartwalk-database
-docker build -f ./Dockerfile.routing-engine -t smartwalk-routing-engine
+make dump
+```
+
+The command creates `keyword.txt` and `place.txt` in `./assets/dump/`.
+
+If necessary, archive files for publishing. Don't forget to replace placeholders enclosed in `[]`.
+
+```bash
+cd ./assets/dump/
+tar -czf smartwalk-[kind]-[date].tar.gz *.txt
+```
+
+### Restoring database
+
+Clean up the database and restore the dump from files:
+
+```bash
+make database-init && make restore
+```
+
+The `restore` procedure expects *both files* to be in `./assets/dump/`. Otherwise, it fails.
+
+Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). All of them cover specific bounding boxes within the Czech Republic.
+
+Unpack a downloaded archive:
+
+```bash
+cd ./assets/dump/
+tar -xzf smartwalk-[kind]-[date].tar.gz
 ```
 
 ## Running the app
 
-The application consists of $4$ interconnected containers.
+Navigate to the root folder of the `smartwalk` repository with `Makefile`.
 
-| Container | Mapping         | Role                        |
-|-----------|-----------------|-----------------------------|
-| proxy     | localhost:3000  | Reverse proxy, static files |
-| backend   | -               | Application logic           |
-| database  | localhost:27017 | Entity store, entity index  |
-| routing   | -               | Routing engine              |
-
-Note that the database container exposes connection for easier manual diagnostic.
-
-```bash
-make prod
-```
-
-To stop production environment, enter `make prod-stop`.
+| Container | Role                        |
+|-----------|-----------------------------|
+| proxy     | Reverse proxy, static files |
+| backend   | Application logic           |
+| database  | Entity store and index      |
+| routing   | Routing engine              |
 
 ### Environment variables
 
@@ -185,28 +202,79 @@ To stop production environment, enter `make prod-stop`.
 
 http://localhost:5017/swagger/index.html
 
-## Troubleshooting
+### Development environment
 
-### WSL runs out of memory
+| Container | Expose          |
+|-----------|-----------------|
+| proxy     | localhost:3000  |
+| backend   | -               |
+| database  | localhost:27017 |
+| routing   | -               |
 
-- If you use `WSL` and run out of memory, Windows may unexpectedly terminate the entire. To prevent Windows from stopping, try to extend the swap file by setting `swap=XXGB` in the `.wslconfig`, see details [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
+For convenience, this environment is loosely coupled. Every component can be started separately. The only exception is that `backend` fails to start without `database`.
 
-### A container is unhealthy or starting
-
-In case any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly), replace `[container_name]` placeholder by the name of a problematic instance and press `Enter` to find out the reason.
+Start the database:
 
 ```bash
-$ docker container ls -a
+
+```
+
+Start the frontend:
+
+```bash
+?
+```
+
+### Production environment
+
+This environment is a tightly coupled bundle consisting of four interconnected containers.
+
+| Container | Exposed         | Role                        |
+|-----------|-----------------|-----------------------------|
+| proxy     | localhost:3000  | Reverse proxy, static files |
+| backend   | -               | Application logic           |
+| database  | localhost:27017 | Entity store and index      |
+| routing   | -               | Routing engine              |
+
+!!! note
+    The `database` container exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
+
+Start production environment:
+
+```bash
+make prod
+```
+
+**ADVICE:** All containers implement healthcheck.
+
+Stop production environment:
+
+```bash
+make prod-stop
+```
+
+## Troubleshooting
+
+<font size="4">**WSL runs out of memory**</font>
+
+If you use `WSL` and your system runs out of memory, Windows terminates the entire process. Try to extend the swap file by setting `swap=XXGB` in the `.wslconfig`, see details [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
+
+<font size="4">**A container starts for too long**</font>
+
+If any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly on the background), replace `[container_name]` placeholder by the name of a problematic instance and press `Enter` to find out the reason.
+
+```bash
+docker container ls -a
 
 CONTAINER ID   IMAGE                    ...   NAMES
 ...            ...                      ...   ...
 377fe35d4472   smartwalk/proxy:v1.0.0   ...   smartwalk-proxy
 ...            ...                      ...   ...
 
-$ docker inspect --format "{{json .State.Health }}" [container_name]
+docker inspect --format "{{json .State.Health }}" [container_name]
 ```
 
-### Nothing seems to help
+<font size="4">**Nothing seems to help**</font>
 
 If nothing helps, clean up the system (remove images and cached build files) and start from scratch. Use the last command with caution as it may introduce undesired changes into your docker host, read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
 

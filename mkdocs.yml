@@ -3,6 +3,8 @@ docs_dir: content
 theme: readthedocs
 markdown_extensions:
   - admonition
+extra_javascript:
+  - js/extra.js
 nav:
   - Home: index.md
   - User documentation: usr.md
