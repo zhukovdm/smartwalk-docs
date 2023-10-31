@@ -1,97 +1,155 @@
-# Administration guide
+# Administrator guide
+
+[**Data preparation**](#data-preparation) provides a step-by-step procedure of how to integrate data from *six* different sources and prepare them for running SmartWalk.
+
+Once data are ready, read [**Running the app**](#running-the-app) to learn how to get the application up and running in development and production settings.
+
+If something is broken or not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
 
 ## Data preparation
 
-The goal of the procedure is to prepare data for separate two system components, a database and routing engine.
+This section explains how to prepare data for two system components: the [database](#entity-storage-and-index) and the [routing engine](#routing-engine).
+
+!!! warning
+    The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
 
 ### Prerequisites
 
-- Ensure that the following programs are available on the target system.
-    - `bash`
-    - `docker`
-    - `dotnet-sdk-6.0`
-    - `make`
-    - `node v18.x` (can be installed using [nvm](https://github.com/nvm-sh/nvm#install--update-script))
+Ensure that the following programs are installed on the target system.
 
-*It is important to preserve proper versions because of the library dependencies.*
+- `bash`
+- `docker`
+- `dotnet-sdk-6.0`
+- `git`
+- `make`
+- `node v18.x` (can be installed using [nvm](https://github.com/nvm-sh/nvm#install--update-script))
+- `wget`
 
-*All docker-related commands require the current user to be a member of a `docker` group to avoid using `sudo` repeatedly, see details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).*
+!!! note
+    If mentioned, preserve proper versions because of the library dependencies.
 
-- Clone the repository and navigate to the `data` folder.
+**ADVICE:** All docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly, see details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+### Environment
+
+Clone the repository and navigate to the `data` folder:
 
 ```bash
 git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
 cd ./smartwalk/data/
 ```
 
-- Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four additional variables `REGION_X`, where suffix `X` can be any of `N` (North), `E` (East), `S` (South), or `W` (West), defining a bounding box. Entities outside bounding box are filtered out. To switch off filtering, set `N=85.06`, `E=180.0`, `S=-85.06`, and `W=-180.0` (see [EPSG3857](https://epsg.io/3857) for details).
+Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. As an example, the following command makes use of the `wget` utility to download the latest dump of the Czech Republic:
 
-- Run `make init` to create folders necessary for storing data.
+```bash
+wget \
+  -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
+  https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
+```
 
-### Data for a routing engine
+Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four additional variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside the bounding box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
 
-- Generate data for a routing engine via `make routing-engine`. The command pulls the [docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
+Create folders necessary for storing data and restore project dependencies:
 
-*An instance of OSRM can use [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)). Furthermore, routing data can be extracted for different countries and kept in the same folder as long as original `pbf`-files have distinct names, a particular region can be decided later.*
+```bash
+make init
+```
 
-### Dataset ingestion
+### Routing engine
 
-- Start up a database instance.
+Build data structure for the routing engine:
+
+```bash
+make routing-engine
+```
+
+The command pulls [this docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
+
+**ADVICE:** An instance of the OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limi- tation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
+
+**ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
+
+### Entity storage and index
+
+Start up a [containerized](https://hub.docker.com/_/mongo/) database instance:
 
 ```bash
 docker compose -f docker-compose.yaml up -d
 ```
 
-*Enter `docker container ls` repeatedly to print out the list of existing containers. Wait until `smartwalk-database` is healthy.*
+**ADVICE:** Enter `docker container ls` repeatedly to print out the list of existing containers. Wait until `smartwalk-database` is healthy.
 
-- Restore project dependencies, create collections and indexes.
+Clean up all previous data, create new collections and indexes:
 
 ```bash
 make database-init
 ```
 
-- Obtain the most popular `OSM` keys and their frequencies of use from [taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc). Results are stored in `./assets/taginfo/`. A list of tags can be extended by altering `Makefile`, although this is not enough to enable their full potential. The [constructor](https://github.com/zhukovdm/smartwalk/blob/fab346ac73f43be063b7e16d4f2c5f060e38ecfc/data/osm/KeywordExtractor.cs#L23-L53) of `KeywordExtractor` shall reflect changes as well. <u>Never remove</u> tags from the list as it may brake things unexpectedly. Modifying tag list is not a typical operation and may require deeper knowledge of the system.
+Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in `./assets/taginfo/`:
 
 ```bash
 make taginfo
 ```
 
-- Extract data from a `pbf`-file. As part of the procedure, the routine makes a `GET` request to the [Overpass](https://overpass-api.de/api/interpreter) endpoint. The connection is configured to time out after 100s, but the server usually responds within 10s at most.
+**ADVICE:** A list of tags can be extended by altering `Makefile`, although this is not enough to enable their full potential. The [constructor](https://github.com/zhukovdm/smartwalk/blob/fab346ac73f43be063b7e16d4f2c5f060e38ecfc/data/osm/KeywordExtractor.cs#L23-L53) of `KeywordExtractor` shall reflect changes as well. <u>Never remove</u> tags from the list as it may brake things unexpectedly. Modifying tag list is not a typical operation and may require deeper knowledge of the system.
+
+Extract entities from the `pbf`-file:
 
 ```bash
 make database-osm
 ```
 
-- Create entities that exist in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph but do not exist in the database. The script attempts to fetch data from the SPARQL endpoint. The file `wikidata-create.mjs` defines an extendable list of categories with upper bounds on number of objects to be retrieved. The script handles items sequentially in a given order.
+As part of the procedure, the routine makes a `GET` request to the [Overpass API](https://overpass-api.de/api/interpreter). The connection is configured to time out after 100s, but the server usually responds within 10s at most.
+
+**ADVICE:** To make queries feasible for the external API, the selected bounding box is divided into smaller squares. The recipe has two switches `--rows` and `--cols` defining the grid.
+
+Create stubs for entities that exist in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
 
 ```bash
 make database-wikidata-create
 ```
 
-*Requests may time out after one minute. Large regions or too general categories are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.*
+The script attempts to fetch data from the SPARQL endpoint. Requests may time out after *one* minute. Large regions are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.
 
-- Enrich existing entities by information from `Wikidata`. Only those with `wikidata` attribute will be updated. Then, do the same for `DBPedia` knowledge graph.
+**ADVICE:** The recipe has `--rows` and `--cols` switches with functionality similar to `database-osm`.
+
+Enrich existing entities by information from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page):
 
 ```bash
 make database-wikidata-enrich
+```
+
+Enrich existing entities by information from [DBPedia](https://www.dbpedia.org/about/) knowledge graph:
+
+```bash
 make database-dbpedia
 ```
 
-*`database-osm`, `database-wikidata-enrich` and `database-dbpedia` are [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions). Failed attempts may be re-run with no consequences for data integrity. `database-wikidata-create` only creates new objects and does not have any impact on already existing.*
-
-- Collect supporting data to aid autocomplete functionality.
+Collect supporting data to aid autocomplete functionality:
 
 ```bash
 make advice
 ```
 
-- Finally, stop the database instance. All relevant data are stored in the `./assets/database`.
+Finally, stop the database instance:
 
 ```bash
-docker compose -f docker-compose.data.yaml down
+docker compose -f docker-compose.yaml down
 ```
 
-### Dumping and restoring database
+All relevant data are stored in `./assets/database`.
+
+### Idempotent updates
+
+The system supports [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions) updates to incorporate new versions of datasets.
+
+It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update defined properties without replacing entities existing in the database.
+
+`advice` should be re-generated whenever the database state is altered.
+
+![command dependencies](./img/data-prep-deps.drawio.svg)
+
+### Dumping and restoring
 
 [place.json](https://www.dropbox.com/scl/fi/25e8u3t5mdx37qn3ncd7t/place.json?rlkey=58cw4mdcsyz3z77tuzzu7qspo&dl=0) and [keyword.json](https://www.dropbox.com/scl/fi/cdh3zngnybptvn0goc46e/keyword.json?rlkey=5655oq6lcom7fjjo28650tbbb&dl=0)
 
@@ -102,7 +160,7 @@ docker build -f ./Dockerfile.database -t smartwalk-database
 docker build -f ./Dockerfile.routing-engine -t smartwalk-routing-engine
 ```
 
-## Production environment
+## Running the app
 
 The application consists of $4$ interconnected containers.
 

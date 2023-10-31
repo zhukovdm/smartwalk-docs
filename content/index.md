@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Welcome to SmartWalk Docs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This repository contains the documentation for the SmartWalk project.
 
-## Commands
+[**User documentation**](./usr.md) covers use cases that most users of the system would get in touch with.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+[**Developer manual**](./dev.md) brings clarity into application architecture and code structure.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[**Administrator guide**](./adm.md) explains how to set up an instance of the system on your personal computer, including data ingestion, deployment environments, and troubleshooting.
