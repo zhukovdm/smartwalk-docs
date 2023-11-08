@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Administrator guide - SmartWalk Docs</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Administrator guide";
+    var mkdocs_page_input_path = "adm.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SmartWalk Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usr/">User documentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dev/">Developer manual</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Administrator guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data preparation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#routing-engine">Routing engine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#entity-store-and-index">Entity store and index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#incremental-updates">Incremental updates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dumping-database">Dumping database</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#restoring-database">Restoring database</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-the-app">Running the app</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#development-environment">Development environment</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#database">Database</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#routing-engine_1">Routing engine</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#backend">Backend</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#frontend">Frontend</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#production-environment">Production environment</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SmartWalk Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Administrator guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/zhukovdm/smartwalk-docs/edit/master/docs/adm.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="administrator-guide">Administrator guide</h1>
+<p><a href="#data-preparation"><strong>Data preparation</strong></a> provides a step-by-step procedure of how to integrate data from <em>six</em> different sources and prepare them for running SmartWalk.</p>
+<p>Once data are ready, read <a href="#running-the-app"><strong>Running the app</strong></a> to learn how to get the application up and running in development and production settings.</p>
+<p>If something is broken or not working as expected, you might find <a href="#troubleshooting"><strong>Troubleshooting</strong></a> helpful before searching for a solution on the Web.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Ensure that the following programs are installed on the target system:</p>
+<ul>
+<li><code>bash</code></li>
+<li><code>docker</code></li>
+<li><code>dotnet-sdk-6.0</code></li>
+<li><code>git</code></li>
+<li><code>make</code></li>
+<li><code>node v18.x</code> (can be installed using <a href="https://github.com/nvm-sh/nvm#install--update-script">nvm</a>)</li>
+<li><code>wget</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If mentioned, preserve proper versions because of the library dependencies.</p>
+</div>
+<p><strong>ADVICE:</strong> All docker-related commands require the current user to be a member of the <code>docker</code> group to avoid using <code>sudo</code> (or similar) repeatedly, see details at <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Manage Docker as a non-root user</a>.</p>
+<p>Clone the repository and navigate to its root folder:</p>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
+cd ./smartwalk/
+</code></pre>
+<h2 id="data-preparation">Data preparation</h2>
+<p>This section explains how to prepare data for two system components: the <a href="#entity-store-and-index">database</a> (entity store and index) and the <a href="#routing-engine">routing engine</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing <code>OSM</code> dumps.</p>
+</div>
+<h3 id="environment">Environment</h3>
+<p>Navigate to the <code>data</code> folder, assuming You are in the root folder of the <code>smartwalk</code> repository:</p>
+<pre><code class="language-bash">cd ./data/
+</code></pre>
+<p>Decide which part of the world you are interested in. Download <code>pbf</code>-file at <a href="https://download.geofabrik.de/">Geofabrik</a>, and store it in <code>./assets/osm-maps/</code>. As an example, the following command makes use of the <code>wget</code> utility to obtain the latest dump of the Czech Republic:</p>
+<pre><code class="language-bash">wget \
+  -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
+  https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
+</code></pre>
+<p>Open <code>Makefile</code> and set the value of <code>REGION_FILE</code> accordingly. Some of the <code>OSM</code> dumps are quite large and additional refinement might be necessary. There are four additional variables <code>REGION_X</code>, where suffix <code>X</code> can be any of <code>W</code> (West), <code>N</code> (North), <code>E</code> (East), or <code>S</code> (South), defining a bounding box. Entities outside the bounding box are filtered out. To switch off filtering, set <code>W=-180.0</code>, <code>N=85.06</code>, <code>E=180.0</code>, and <code>S=-85.06</code> (see <a href="https://epsg.io/3857">EPSG3857</a> for details).</p>
+<p>Create folders necessary for storing data and restore project dependencies:</p>
+<pre><code class="language-bash">make init
+</code></pre>
+<h3 id="routing-engine">Routing engine</h3>
+<p>Build data structure for the routing engine:</p>
+<pre><code class="language-bash">make routing-engine
+</code></pre>
+<p>The command pulls <a href="https://hub.docker.com/r/osrm/osrm-backend/">this docker image</a> and builds a search structure in several consecutive phases. The results are stored in the <code>./assets/routing-engine/</code>.</p>
+<p><strong>ADVICE:</strong> An instance of the OSRM backend is able to load <a href="https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries">only one</a> <code>osrm</code>-file at a time. This limi- tation can be overcome via merging (see <a href="https://gis.stackexchange.com/a/242880">osmosis</a>).</p>
+<p><strong>ADVICE:</strong> It is possible to extract routing data for several regions and keep all files in the same folder as long as the original <code>pbf</code>-files have distinct names. Use <a href="#environment-variables">environment variables</a> to select a part of the world on engine start.</p>
+<h3 id="entity-store-and-index">Entity store and index</h3>
+<p>Start up a <a href="https://hub.docker.com/_/mongo/">containerized</a> database instance:</p>
+<pre><code class="language-bash">docker compose -f docker-compose.yaml up -d
+</code></pre>
+<p><strong>ADVICE:</strong> Enter <code>docker container ls</code> repeatedly to print out the list of existing containers. Wait until <code>smartwalk-database</code> is healthy.</p>
+<p>Clean up all previous data, create new collections and indexes:</p>
+<pre><code class="language-bash">make database-init
+</code></pre>
+<p>Obtain the most popular <code>OSM</code> keys from <a href="https://taginfo.openstreetmap.org/taginfo/apidoc">Taginfo</a> and store results in <code>./assets/taginfo/</code>:</p>
+<pre><code class="language-bash">make taginfo
+</code></pre>
+<p><strong>ADVICE:</strong> A list of tags can be extended by altering <code>Makefile</code>, although this is not enough to enable their full potential. The <a href="https://github.com/zhukovdm/smartwalk/blob/fab346ac73f43be063b7e16d4f2c5f060e38ecfc/data/osm/KeywordExtractor.cs#L23-L53">constructor</a> of <code>KeywordExtractor</code> shall reflect changes as well. <u>Never remove</u> tags from the list as it may brake things unexpectedly. Modifying tag list is not a typical operation and may require deeper knowledge of the system.</p>
+<p>Extract entities from the <code>pbf</code>-file:</p>
+<pre><code class="language-bash">make database-osm
+</code></pre>
+<p>As part of the procedure, the routine makes a <code>GET</code> request to the <a href="https://overpass-api.de/api/interpreter">Overpass API</a>. The connection is configured to time out after 100s, but the server usually responds within 10s at most.</p>
+<p><strong>ADVICE:</strong> To make queries feasible for the external API, the selected bounding box is divided into smaller squares. The recipe has two switches <code>--rows</code> and <code>--cols</code> defining the grid.</p>
+<p>Create stubs for entities that exist in the <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> knowledge graph:</p>
+<pre><code class="language-bash">make database-wikidata-create
+</code></pre>
+<p>The script attempts to fetch data from the SPARQL endpoint. Requests may time out after <em>one</em> minute. Large regions are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.</p>
+<p><strong>ADVICE:</strong> The recipe has <code>--rows</code> and <code>--cols</code> switches with functionality similar to <code>database-osm</code>.</p>
+<p>Enrich existing entities by information from <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>:</p>
+<pre><code class="language-bash">make database-wikidata-enrich
+</code></pre>
+<p>Enrich existing entities by information from <a href="https://www.dbpedia.org/about/">DBPedia</a> knowledge graph:</p>
+<pre><code class="language-bash">make database-dbpedia
+</code></pre>
+<p>Collect supporting data to aid autocomplete functionality:</p>
+<pre><code class="language-bash">make advice
+</code></pre>
+<p>Finally, stop the database instance:</p>
+<pre><code class="language-bash">docker compose -f docker-compose.yaml down
+</code></pre>
+<p>All relevant data are stored in <code>./assets/database</code>.</p>
+<h3 id="incremental-updates">Incremental updates</h3>
+<p>The system supports incremental updates, acting as an <a href="https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions">idempotent</a> function, to incorporate new versions of datasets.</p>
+<p>It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update only defined properties without replacing entities.</p>
+<p><code>advice</code> should be re-generated whenever the database state is altered.</p>
+<p><img alt="command dependencies" src="../img/data-prep-deps.drawio.svg" /></p>
+<h3 id="dumping-database">Dumping database</h3>
+<p>Create a dump of the current database state and archive files:</p>
+<pre><code class="language-bash">make dump
+</code></pre>
+<p>The command creates <code>keyword.txt</code> and <code>place.txt</code> in <code>./assets/dump/</code>.</p>
+<p>If necessary, archive files for publishing:</p>
+<pre><code class="language-bash">cd ./assets/dump/
+tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
+</code></pre>
+<h3 id="restoring-database">Restoring database</h3>
+<p>Clean up the database and restore the dump from files:</p>
+<pre><code class="language-bash">make database-init &amp;&amp; make restore
+</code></pre>
+<p>The <code>restore</code> procedure expects <em>both files</em> to be in <code>./assets/dump/</code>. Otherwise, it fails.</p>
+<p>Examples of archived dumps can be found <a href="https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&amp;dl=0">here</a>. Those having <code>prod</code> in their names are the most data-rich covering <a href="https://en.wikipedia.org/wiki/Prague">Prague</a>.</p>
+<p>Unpack a downloaded archive:</p>
+<pre><code class="language-bash">cd ./assets/dump/
+tar -xzf smartwalk-[kind]-[timestamp].tar.gz
+</code></pre>
+<h2 id="running-the-app">Running the app</h2>
+<p>The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the <code>smartwalk</code> repository and all relevant data have been extracted or restored and are available in their respective folders.</p>
+<h3 id="development-environment">Development environment</h3>
+<p>This environment is intended primarily for developers and testers. It enables starting and stopping parts of the system independently.</p>
+<p>There are four system components involved in the setup: frontend, backend, database, and routing engine. The first two items run directly in the terminal, while the last two are docker containers. The table below summarizes their roles and port mapping.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Ports</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>localhost:27017</td>
+<td>Entity store and index</td>
+</tr>
+<tr>
+<td>routing</td>
+<td>localhost:5000</td>
+<td>Routing engine</td>
+</tr>
+<tr>
+<td>backend</td>
+<td>localhost:5017</td>
+<td>Application logic (<s>hot reload</s>)</td>
+</tr>
+<tr>
+<td>frontend</td>
+<td>localhost:3000</td>
+<td>Static files (hot reload)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For convenience, all components can be started and stopped directly from the <code>smartwalk</code> root folder. Please refer to <a href="https://github.com/zhukovdm/smartwalk/blob/main/Makefile">Makefile</a>. Recipe names follow the pattern <code>[component_name]-dev[-stop]</code>.</p>
+</div>
+<h4 id="database">Database</h4>
+<p>Start and stop an instance of database using <code>database-dev[-stop]</code> from <code>Makefile</code>.</p>
+<h4 id="routing-engine_1">Routing engine</h4>
+<p>Start and stop an instance of routing engine using <code>routing-dev[-stop]</code> from <code>Makefile</code>.</p>
+<p>Set <code>OSRM_REGION_FILE</code> in <a href="https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.development">.env.development</a> to load a region other than the Czech Republic.</p>
+<h4 id="backend">Backend</h4>
+<p>The project is located in <code>./app/backend/</code>. Run <code>dotnet run</code> from there to start the backend in the terminal, and stop it by pressing <code>Ctrl+C</code>. Read more about other commands in <a href="https://github.com/zhukovdm/smartwalk/blob/main/app/backend/README.md">README.md</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This component requires <code>database</code> to be up and running. Otherwise, it fails to start.</p>
+</div>
+<p>The source code uses <code>SMARTWALK_MONGO_CONN_STR</code> and <code>SMARTWALK_OSRM_BASE_URL</code> environment variables. Adjust <a href="https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json">launchSettings.json</a> respectively if you wish to run dependencies on different ports.</p>
+<h4 id="frontend">Frontend</h4>
+<p>Find the project in <code>./app/frontend/</code>. Run <code>npm start</code> from there to start the frontend in the terminal, and stop it by pressing <code>Ctrl+C</code>. Learn more about other commands in <a href="https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/README.md">README.md</a>.</p>
+<p>The source code uses <code>REACT_APP_SMARTWALK_API_ORIGIN</code> environment variable. Set its value in <a href="https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/.env.development">.env.development</a> if you wish to run backend on another port.</p>
+<h3 id="production-environment">Production environment</h3>
+<p>This environment is a tightly coupled bundle consisting of four interconnected docker containers.</p>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Expose</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>localhost:27017</td>
+<td>Entity store and index</td>
+</tr>
+<tr>
+<td>routing</td>
+<td>-</td>
+<td>Routing engine</td>
+</tr>
+<tr>
+<td>backend</td>
+<td>-</td>
+<td>Application logic</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td>localhost:3000</td>
+<td>Reverse proxy, static files</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>database</code> exposes port <code>27017</code> for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.</p>
+</div>
+<p>Start and stop production environment from the root folder of the repo:</p>
+<pre><code class="language-bash">make prod[-stop]
+</code></pre>
+<p><strong>ADVICE:</strong> All containers implement healthcheck, run <code>docker container ls</code> to see their state.</p>
+<p>All environment variables are defined in <a href="https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production">.env.production</a> file.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><font size="4"><strong>WSL runs out of memory</strong></font></p>
+<p>If you use <code>WSL</code> and your system runs out of memory, Windows terminates the entire process. Try to extend the swap file by setting <code>swap=XXGB</code> in the <code>.wslconfig</code>, see details <a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file">here</a>.</p>
+<p><font size="4"><strong>A container starts for too long</strong></font></p>
+<p>If any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly on the background), replace <code>[container_name]</code> placeholder by the name of a problematic instance and press <code>Enter</code> to find out the reason.</p>
+<pre><code class="language-bash">docker container ls -a
+
+CONTAINER ID   IMAGE                    ...   NAMES
+...            ...                      ...   ...
+377fe35d4472   smartwalk/proxy:v1.0.0   ...   smartwalk-proxy
+...            ...                      ...   ...
+
+docker inspect --format &quot;{{json .State.Health }}&quot; [container_name]
+</code></pre>
+<p><font size="4"><strong>Nothing seems to help</strong></font></p>
+<p>If nothing helps, clean up the system (remove images and cached build files) and start from scratch. Use the last command with caution as it may introduce undesired changes into your docker host, read about side effects <a href="https://docs.docker.com/engine/reference/commandline/system_prune/">here</a>.</p>
+<pre><code class="language-bash">$ docker image rm smartwalk/
+$ docker system prune
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../dev/" class="btn btn-neutral" title="Developer manual"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/zhukovdm/smartwalk-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../dev/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/extra.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

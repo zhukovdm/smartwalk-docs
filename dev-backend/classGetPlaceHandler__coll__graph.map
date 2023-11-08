@@ -1,0 +1,5 @@
+<map id="GetPlaceHandler" name="GetPlaceHandler">
+<area shape="rect" id="node1" title="Endpoint&#45;specific handler." alt="" coords="151,109,281,136"/>
+<area shape="rect" id="node2" href="$interfaceIQueryHandler.html" title=" " alt="" coords="5,5,237,47"/>
+<area shape="rect" id="node3" href="$interfaceIEntityStore.html" title=" " alt="" coords="261,13,360,39"/>
+</map>

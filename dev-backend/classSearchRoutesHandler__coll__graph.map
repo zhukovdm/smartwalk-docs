@@ -1,0 +1,6 @@
+<map id="SearchRoutesHandler" name="SearchRoutesHandler">
+<area shape="rect" id="node1" title="Endpoint&#45;specific handler." alt="" coords="229,109,391,136"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,225,47"/>
+<area shape="rect" id="node3" href="$interfaceIRoutingEngine.html" title=" " alt="" coords="250,13,370,39"/>
+<area shape="rect" id="node4" href="$interfaceIEntityIndex.html" title=" " alt="" coords="395,13,495,39"/>
+</map>

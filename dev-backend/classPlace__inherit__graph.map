@@ -1,0 +1,4 @@
+<map id="Place" name="Place">
+<area shape="rect" id="node1" title="Minimal representation of a place used in results and private storages." alt="" coords="36,5,93,32"/>
+<area shape="rect" id="node2" href="$classExtendedPlace.html" title="Full representation of a place used for rendering in detailed views." alt="" coords="5,80,124,107"/>
+</map>
