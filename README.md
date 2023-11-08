@@ -1,13 +1,31 @@
 # SmartWalk Docs
 
-View the documentation locally at http://127.0.0.1:8000/:
+# Serve
+
+View the documentation locally (with hot reload) at http://127.0.0.1:8000/:
 
 ```bash
 mkdocs serve
 ```
 
-Generate static files to the `./site/` folder:
+## Deploy
+
+Clone [smartwalk](https://github.com/zhukovdm/smartwalk.git) repository into `../`.
+
+Restore dependencies:
 
 ```bash
-mkdocs build
+npm ci
+```
+
+Generate static files into the `./site` folder:
+
+```bash
+make docs
+```
+
+Deploy `./site` with static files to GitHub:
+
+```bash
+npm run deploy
 ```
