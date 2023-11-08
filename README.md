@@ -1,6 +1,6 @@
 # SmartWalk Docs
 
-# Serve
+## Serve
 
 View the documentation locally (with hot reload) at http://127.0.0.1:8000/:
 
