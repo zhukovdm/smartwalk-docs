@@ -1,6 +1,6 @@
 # Administrator guide
 
-[**Data preparation**](#data-preparation) provides a step-by-step procedure of how to integrate data from *six* different sources and prepare them for running SmartWalk.
+[**Data preparation**](#data-preparation) provides a step-by-step procedure of how to integrate data from *six* different sources and prepare it for running SmartWalk.
 
 Once data are ready, read [**Running the app**](#running-the-app) to learn how to get the application up and running in development and production settings.
 
@@ -71,7 +71,7 @@ make routing-engine
 
 The command pulls [this docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
 
-**ADVICE:** An instance of the OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limi- tation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
+**ADVICE:** An instance of the OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
 
 **ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
 
@@ -250,6 +250,10 @@ This environment is a tightly coupled bundle consisting of four interconnected d
 !!! note
     The `database` exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
 
+A more detailed schema is shown in the picture below:
+
+![docker production setup](./img/docker-production-setup.drawio.svg)
+
 Start and stop production environment from the root folder of the repo:
 
 ```bash
@@ -258,7 +262,7 @@ make prod[-stop]
 
 **ADVICE:** All containers implement healthcheck, run `docker container ls` to see their state.
 
-All environment variables are defined in [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
+The respective environment variables are defined in [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
 
 ## Troubleshooting
 
