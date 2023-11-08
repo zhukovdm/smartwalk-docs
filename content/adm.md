@@ -169,7 +169,7 @@ If necessary, archive files for publishing:
 
 ```bash
 cd ./assets/dump/
-tar -czf smartwalk-[kind]-[date].tar.gz *.txt
+tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 ```
 
 ### Restoring database
@@ -182,13 +182,13 @@ make database-init && make restore
 
 The `restore` procedure expects *both files* to be in `./assets/dump/`. Otherwise, it fails.
 
-Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). All of them cover specific bounding boxes within the Czech Republic.
+Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). Those having `prod` in their names are the most data-rich covering [Prague](https://en.wikipedia.org/wiki/Prague).
 
 Unpack a downloaded archive:
 
 ```bash
 cd ./assets/dump/
-tar -xzf smartwalk-[kind]-[date].tar.gz
+tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 ```
 
 ## Running the app
@@ -258,7 +258,7 @@ make prod[-stop]
 
 **ADVICE:** All containers implement healthcheck, run `docker container ls` to see their state.
 
-All environment variables are defined in the same [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
+All environment variables are defined in [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
 
 ## Troubleshooting
 
