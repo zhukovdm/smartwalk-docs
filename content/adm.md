@@ -8,7 +8,7 @@ If something is not working as expected, you might find [**Troubleshooting**](#t
 
 ## Prerequisites
 
-We assume that the application will run on Unix-like environments, such as Linux or [WSL](https://learn.microsoft.com/en-us/windows/wsl/about).
+We assume that the application will run on *Unix-like* environments, such as Linux or [WSL](https://learn.microsoft.com/en-us/windows/wsl/about).
 
 **ADVICE:** SmartWalk is essentially multiplatform. The only real limitation is having a platform supported by [Docker](https://docs.docker.com/engine/faq/#does-docker-run-on-linux-macos-and-windows). However, Unix utilities simplify certain aspects of system maintenance.
 
@@ -30,13 +30,13 @@ Please ensure that the following programs are installed on the target system:
 Clone the repository and navigate to its root folder:
 
 ```bash
-git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
-cd ./smartwalk/
+$ git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
+$ cd ./smartwalk/
 ```
 
 ## Data preparation
 
-This section explains how to prepare data for two system components: the [Database](#entity-store-and-index) (entity store and index) and the [Routing Engine](#routing-engine).
+This section explains how to prepare data for two system components: the [**Database**](#entity-store-and-index) (entity store and index) and the [**Routing engine**](#routing-engine).
 
 !!! warning
     The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
@@ -46,15 +46,15 @@ This section explains how to prepare data for two system components: the [Databa
 Navigate to the `data` folder, assuming You are in the root folder of the `smartwalk` repository:
 
 ```bash
-cd ./data/
+$ cd ./data/
 ```
 
 Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. As an example, the following command makes use of the `wget` utility to obtain the latest dump of the Czech Republic:
 
 ```bash
-wget \
-  -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
-  https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
+$ wget \
+    -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
+    https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
 ```
 
 Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside this box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
@@ -62,15 +62,15 @@ Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM
 Create folders necessary for storing data and restore project dependencies:
 
 ```bash
-make init
+$ make init
 ```
 
-### Routing Engine
+### Routing engine
 
 Build data structure for the routing engine:
 
 ```bash
-make routing-engine
+$ make routing-engine
 ```
 
 The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
@@ -79,12 +79,12 @@ The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend
 
 **ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
 
-### Entity Store and Index
+### Entity store and index
 
 Start up a [containerized](https://hub.docker.com/_/mongo/) database instance:
 
 ```bash
-docker compose up -d
+$ docker compose up -d
 ```
 
 **ADVICE:** Enter `docker container ls` repeatedly to print out the list of existing containers. Wait until `smartwalk-database` is healthy.
@@ -92,13 +92,13 @@ docker compose up -d
 Clean up all previous data, create new collections and indexes:
 
 ```bash
-make database-init
+$ make database-init
 ```
 
 Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in `./assets/taginfo/`:
 
 ```bash
-make taginfo
+$ make taginfo
 ```
 
 **ADVICE:** A list of tags can be extended by altering `Makefile`, although this is not enough to enable their full potential. The [constructor](https://github.com/zhukovdm/smartwalk/blob/fab346ac73f43be063b7e16d4f2c5f060e38ecfc/data/osm/KeywordExtractor.cs#L23-L53) of `KeywordExtractor` shall reflect changes as well. <u>Never remove</u> tags from the list as it may brake things unexpectedly. Modifying tag list is not a typical operation and may require deeper knowledge of the system.
@@ -106,7 +106,7 @@ make taginfo
 Extract entities from the `pbf`-file:
 
 ```bash
-make database-osm
+$ make database-osm
 ```
 
 As part of the procedure, the routine makes several `GET` requests to the [Overpass API](https://overpass-api.de/api/interpreter). A query is configured to time out after 100s, but the server usually responds within 10s at most.
@@ -116,7 +116,7 @@ As part of the procedure, the routine makes several `GET` requests to the [Overp
 Create stubs for entities existing in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
 
 ```bash
-make database-wikidata-create
+$ make database-wikidata-create
 ```
 
 The script attempts to fetch data from the SPARQL endpoint. Requests may time out after *one* minute. Large regions are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.
@@ -126,28 +126,28 @@ The script attempts to fetch data from the SPARQL endpoint. Requests may time ou
 Enrich existing entities by information from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page):
 
 ```bash
-make database-wikidata-enrich
+$ make database-wikidata-enrich
 ```
 
 Enrich existing entities by information from [DBPedia](https://www.dbpedia.org/about/) knowledge graph:
 
 ```bash
-make database-dbpedia
+$ make database-dbpedia
 ```
 
 Collect supporting data to aid autocomplete functionality:
 
 ```bash
-make advice
+$ make advice
 ```
 
 Finally, stop the database instance:
 
 ```bash
-docker compose down
+$ docker compose down
 ```
 
-All relevant data are stored in `./assets/database/`.
+All relevant files are stored in `./assets/database/`.
 
 ### Incremental updates
 
@@ -162,7 +162,7 @@ The system supports incremental updates to incorporate new versions of datasets.
 Create a dump of the current database state:
 
 ```bash
-make dump
+$ make dump
 ```
 
 The command creates `keyword.txt` and `place.txt` in `./assets/dump/`.
@@ -170,8 +170,8 @@ The command creates `keyword.txt` and `place.txt` in `./assets/dump/`.
 If necessary, archive files for publishing:
 
 ```bash
-cd ./assets/dump/
-tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
+$ cd ./assets/dump/
+$ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 ```
 
 ### Restoring database
@@ -179,7 +179,7 @@ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 Clean up the database and restore the dump from files:
 
 ```bash
-make database-init && make restore
+$ make database-init && make restore
 ```
 
 The `restore` procedure expects *both files* to be in `./assets/dump/`. Otherwise, it fails.
@@ -189,8 +189,8 @@ Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/ph
 Unpack a downloaded archive:
 
 ```bash
-cd ./assets/dump/
-tar -xzf smartwalk-[kind]-[timestamp].tar.gz
+$ cd ./assets/dump/
+$ tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 ```
 
 ## Running the app
@@ -211,7 +211,7 @@ There are *four* system components involved in the setup: the frontend, backend,
 | frontend  | localhost:3000    | Static files (hot reload)             |
 
 !!! note
-    For convenience, all components can be started and stopped directly from the `smartwalk` root folder. Please refer to [Makefile](https://github.com/zhukovdm/smartwalk/blob/main/Makefile). Recipe names follow the pattern `[component_name]-dev[-stop]`.
+    For convenience, components can be started and stopped directly from the `smartwalk` root folder. Please refer to [Makefile](https://github.com/zhukovdm/smartwalk/blob/main/Makefile). Recipe names follow the pattern `[component_name]-dev[-stop]`.
 
 #### Database
 
@@ -250,7 +250,7 @@ This environment is a tightly coupled bundle consisting of four interconnected D
 Start and stop production environment from the root folder of the repo:
 
 ```bash
-make prod[-stop]
+$ make prod[-stop]
 ```
 
 **ADVICE:** All containers implement healthcheck, run `docker container ls` to see their state.
@@ -268,14 +268,14 @@ If your `WSL` consumes too much memory, Windows might suddenly terminate the ent
 If any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly on the background), replace `[container_name]` placeholder by the name of a problematic instance and press `Enter` to find out the reason:
 
 ```bash
-docker container ls -a
+$ docker container ls -a
 
 CONTAINER ID   IMAGE                    ...   NAMES
 ...            ...                      ...   ...
 377fe35d4472   smartwalk/proxy:v1.0.0   ...   smartwalk-proxy
 ...            ...                      ...   ...
 
-docker inspect --format "{{json .State.Health }}" [container_name]
+$ docker inspect --format "{{json .State.Health }}" [container_name]
 ```
 
 <font size="4">**Nothing seems to help**</font>
@@ -283,16 +283,16 @@ docker inspect --format "{{json .State.Health }}" [container_name]
 If the system does not work properly and you do not know what to do, clean up files and start from scratch. As the first step, remove *SmartWalk* images:
 
 ```bash
-docker image rm smartwalk/proxy
-docker image rm smartwalk/backend
-docker image rm smartwalk/routing
+$ docker image rm smartwalk/proxy
+$ docker image rm smartwalk/backend
+$ docker image rm smartwalk/routing
 ```
 
-Clean up Docker cache (cached build files, dangling images and volumes, etc.):
-
-```bash
-docker system prune --volumes
-```
+Clean up unused Docker files (cached build files, dangling images and volumes, etc.):
 
 !!! warning
-    Use these commands with caution as it may introduce undesired changes into your Docker host, read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
+    Use these commands with caution as it may introduce undesired changes into your Docker host. Read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
+
+```bash
+$ docker system prune --volumes
+```
