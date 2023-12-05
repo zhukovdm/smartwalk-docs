@@ -1,14 +1,18 @@
-# Administrator guide
+# Administrator's guide
 
-[**Data preparation**](#data-preparation) provides a step-by-step procedure of how to integrate data from *six* different sources and prepare it for running SmartWalk.
+[**Data preparation**](#data-preparation) provides a step-by-step procedure on how to integrate data from *six* different sources and prepare it for running SmartWalk.
 
-Once data are ready, read [**Running the app**](#running-the-app) to learn how to get the application up and running in development and production settings.
+Once data is ready, read [**Running the app**](#running-the-app) to learn how to get the application up and running in development and production settings.
 
-If something is broken or not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
+If something is not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
 
 ## Prerequisites
 
-Ensure that the following programs are installed on the target system:
+We assume that the application will run on Unix-like environments, such as Linux or [WSL](https://learn.microsoft.com/en-us/windows/wsl/about).
+
+**ADVICE:** SmartWalk is essentially multiplatform. The only real limitation is having a platform supported by [Docker](https://docs.docker.com/engine/faq/#does-docker-run-on-linux-macos-and-windows). However, Unix utilities simplify certain aspects of system maintenance.
+
+Please ensure that the following programs are installed on the target system:
 
 - `bash`
 - `docker`
@@ -21,7 +25,7 @@ Ensure that the following programs are installed on the target system:
 !!! note
     If mentioned, preserve proper versions because of the library dependencies.
 
-**ADVICE:** All docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly, see details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+**ADVICE:** Docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly. See details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 Clone the repository and navigate to its root folder:
 
@@ -32,7 +36,7 @@ cd ./smartwalk/
 
 ## Data preparation
 
-This section explains how to prepare data for two system components: the [database](#entity-store-and-index) (entity store and index) and the [routing engine](#routing-engine).
+This section explains how to prepare data for two system components: the [Database](#entity-store-and-index) (entity store and index) and the [Routing Engine](#routing-engine).
 
 !!! warning
     The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
@@ -53,7 +57,7 @@ wget \
   https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
 ```
 
-Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four additional variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside the bounding box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
+Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside this box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
 
 Create folders necessary for storing data and restore project dependencies:
 
@@ -61,7 +65,7 @@ Create folders necessary for storing data and restore project dependencies:
 make init
 ```
 
-### Routing engine
+### Routing Engine
 
 Build data structure for the routing engine:
 
@@ -69,18 +73,18 @@ Build data structure for the routing engine:
 make routing-engine
 ```
 
-The command pulls [this docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
+The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
 
 **ADVICE:** An instance of the OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
 
 **ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
 
-### Entity store and index
+### Entity Store and Index
 
 Start up a [containerized](https://hub.docker.com/_/mongo/) database instance:
 
 ```bash
-docker compose -f docker-compose.yaml up -d
+docker compose up -d
 ```
 
 **ADVICE:** Enter `docker container ls` repeatedly to print out the list of existing containers. Wait until `smartwalk-database` is healthy.
@@ -105,11 +109,11 @@ Extract entities from the `pbf`-file:
 make database-osm
 ```
 
-As part of the procedure, the routine makes a `GET` request to the [Overpass API](https://overpass-api.de/api/interpreter). The connection is configured to time out after 100s, but the server usually responds within 10s at most.
+As part of the procedure, the routine makes several `GET` requests to the [Overpass API](https://overpass-api.de/api/interpreter). A query is configured to time out after 100s, but the server usually responds within 10s at most.
 
 **ADVICE:** To make queries feasible for the external API, the selected bounding box is divided into smaller squares. The recipe has two switches `--rows` and `--cols` defining the grid.
 
-Create stubs for entities that exist in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
+Create stubs for entities existing in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
 
 ```bash
 make database-wikidata-create
@@ -140,24 +144,22 @@ make advice
 Finally, stop the database instance:
 
 ```bash
-docker compose -f docker-compose.yaml down
+docker compose down
 ```
 
-All relevant data are stored in `./assets/database`.
+All relevant data are stored in `./assets/database/`.
 
 ### Incremental updates
 
-The system supports incremental updates, acting as an [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions) function, to incorporate new versions of datasets.
-
-It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update only defined properties without replacing entities.
+The system supports incremental updates to incorporate new versions of datasets. It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update only defined properties without replacing entities, acting as an [idempotent](https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions) function.
 
 `advice` should be re-generated whenever the database state is altered.
 
-![command dependencies](./img/data-prep-deps.drawio.svg)
+![step dependencies](./img/data-prep-deps.drawio.svg)
 
 ### Dumping database
 
-Create a dump of the current database state and archive files:
+Create a dump of the current database state:
 
 ```bash
 make dump
@@ -197,15 +199,15 @@ The purpose of this section is to explain how to start the system in development
 
 ### Development environment
 
-This environment is intended primarily for developers and testers. It enables starting and stopping parts of the system independently.
+This environment is intended primarily for developers and testers. It enables controlling parts of the system independently.
 
-There are four system components involved in the setup: frontend, backend, database, and routing engine. The first two items run directly in the terminal, while the last two are docker containers. The table below summarizes their roles and port mapping.
+There are *four* system components involved in the setup: the frontend, backend, database, and routing engine. The first two run directly in the terminal, while the last two are Docker containers. The table below summarizes their roles and port mapping.
 
 | Component | Ports             | Role                                  |
 |-----------|-------------------|---------------------------------------|
 | database  | localhost:27017   | Entity store and index                |
 | routing   | localhost:5000    | Routing engine                        |
-| backend   | localhost:5017    | Application logic (<s>hot reload</s>) |
+| backend   | localhost:5017    | Application logic <s>(hot reload)</s> |
 | frontend  | localhost:3000    | Static files (hot reload)             |
 
 !!! note
@@ -225,7 +227,7 @@ Set `OSRM_REGION_FILE` in [.env.development](https://github.com/zhukovdm/smartwa
 
 The project is located in `./app/backend/`. Run `dotnet run` from there to start the backend in the terminal, and stop it by pressing `Ctrl+C`. Read more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/README.md).
 
-!!! info
+!!! warning
     This component requires `database` to be up and running. Otherwise, it fails to start.
 
 The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to run dependencies on different ports.
@@ -238,21 +240,12 @@ The source code uses `REACT_APP_SMARTWALK_API_ORIGIN` environment variable. Set 
 
 ### Production environment
 
-This environment is a tightly coupled bundle consisting of four interconnected docker containers.
+This environment is a tightly coupled bundle consisting of four interconnected Docker containers; its detailed schema is shown in the picture below:
 
-| Container | Expose            | Role                          |
-|-----------|-------------------|-------------------------------|
-| database  | localhost:27017   | Entity store and index        |
-| routing   | -                 | Routing engine                |
-| backend   | -                 | Application logic             |
-| proxy     | localhost:3000    | Reverse proxy, static files   |
+![docker production setup](./img/docker-production-setup.drawio.svg)
 
 !!! note
     The `database` exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
-
-A more detailed schema is shown in the picture below:
-
-![docker production setup](./img/docker-production-setup.drawio.svg)
 
 Start and stop production environment from the root folder of the repo:
 
@@ -268,11 +261,11 @@ The respective environment variables are defined in [.env.production](https://gi
 
 <font size="4">**WSL runs out of memory**</font>
 
-If you use `WSL` and your system runs out of memory, Windows terminates the entire process. Try to extend the swap file by setting `swap=XXGB` in the `.wslconfig`, see details [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
+If your `WSL` consumes too much memory, Windows might suddenly terminate the entire process without prior notice. Try to mitigate the issue by extending the swap file; set `swap=XXGB` in the `.wslconfig`. For more details, see [Example .wslconfig file](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
 
 <font size="4">**A container starts for too long**</font>
 
-If any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly on the background), replace `[container_name]` placeholder by the name of a problematic instance and press `Enter` to find out the reason.
+If any of the containers is unhealthy or starting for too long (healthcheck has failed repeatedly on the background), replace `[container_name]` placeholder by the name of a problematic instance and press `Enter` to find out the reason:
 
 ```bash
 docker container ls -a
@@ -287,9 +280,19 @@ docker inspect --format "{{json .State.Health }}" [container_name]
 
 <font size="4">**Nothing seems to help**</font>
 
-If nothing helps, clean up the system (remove images and cached build files) and start from scratch. Use the last command with caution as it may introduce undesired changes into your docker host, read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
+If the system does not work properly and you do not know what to do, clean up files and start from scratch. As the first step, remove *SmartWalk* images:
 
 ```bash
-$ docker image rm smartwalk/
-$ docker system prune
+docker image rm smartwalk/proxy
+docker image rm smartwalk/backend
+docker image rm smartwalk/routing
 ```
+
+Clean up Docker cache (cached build files, dangling images and volumes, etc.):
+
+```bash
+docker system prune --volumes
+```
+
+!!! warning
+    Use these commands with caution as it may introduce undesired changes into your Docker host, read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).

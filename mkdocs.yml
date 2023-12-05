@@ -12,6 +12,6 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - User documentation: usr.md
-  - Developer manual: dev.md
-  - Administrator guide: adm.md
+  - User's documentation: usr.md
+  - Programmer's guide: prg.md
+  - Administrator's guide: adm.md

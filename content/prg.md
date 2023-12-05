@@ -1,4 +1,4 @@
-# Developer manual
+# Programmer's guide
 
 To ensure a gentle learning curve and easier participation in the project, see useful stuff below.
 
