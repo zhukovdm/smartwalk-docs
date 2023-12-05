@@ -24,7 +24,7 @@ Generate static files into the `./site` folder:
 make docs
 ```
 
-Deploy `./site` with static files to GitHub:
+Deploy files in the `./site/` folder to GitHub:
 
 ```bash
 npm run deploy
