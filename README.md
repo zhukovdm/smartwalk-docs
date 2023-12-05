@@ -5,7 +5,7 @@
 View the documentation locally (with hot reload) at http://127.0.0.1:8000/:
 
 ```bash
-mkdocs serve
+$ mkdocs serve
 ```
 
 ## Deploy
@@ -15,17 +15,17 @@ Clone [smartwalk](https://github.com/zhukovdm/smartwalk.git) repository into `..
 Restore dependencies:
 
 ```bash
-npm ci
+$ npm ci
 ```
 
-Generate static files into the `./site` folder:
+Generate static files into the `./site/` folder:
 
 ```bash
-make docs
+$ make docs
 ```
 
 Deploy files in the `./site/` folder to GitHub:
 
 ```bash
-npm run deploy
+$ npm run deploy
 ```
