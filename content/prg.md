@@ -1,80 +1,71 @@
 # Programmer's guide
 
-The goal of this guide is to provide a high-level overview of the project structure, introduce the main parts of the system and abstractions, and eventually ensure a gentle learning curve.
+This guide introduces the main parts of the application and provides sufficient implementation details to ensure a gentle learning curve for novice contributors.
 
 ## Prerequisites
 
-To acquire the tools necessary for development, follow the steps outlined in [**Prerequisites**](./adm.md#prerequisites). Then, choose a text editor that supports syntax highlighting and suggestions for [TypeScript](https://www.typescriptlang.org/) with [JSX](https://react.dev/learn/writing-markup-with-jsx) extension and [C\#](https://learn.microsoft.com/en-us/dotnet/csharp/) programming languages.
+To acquire the tools necessary for setting up the development environment, preparing the dataset, and writing and testing source code, follow the steps outlined in [**Prerequisites**](./adm.md#prerequisites).
+
+## Environment
+
+Learn more about the development environment at [**Running the app**](./adm.md#running-the-app). This section explains how to configure, start, and terminate individual parts of the system.
 
 ## Repository structure
 
-The repository has roughly the following structure. Please note that the list is not exhaustive.
+The repository has the following structure.
 
 ```txt
-.
-├── Makefile . . . . . . . . . . . . . . . . . . . . . . . . . Recipes for system maintenance
+./
+├── Makefile . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . System maintenance
 ├── app/
-│   ├── backend/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . Web API application
-│   │   ├── Dockerfile
-│   │   ├── Doxyfile
-│   │   ├── README.md
-│   │   ├── SmartWalk.Api/ . . . . . . . . . . . . . . . . . . . . . . . . Presentation layer
-│   │   ├── SmartWalk.Application/ . . . . . . . . . . . . . . . . . . . Handlers (use cases)
-│   │   ├── SmartWalk.Core/  . . . . . . . . . . . . . . . . . . . . . . . . . . Domain logic
-│   │   ├── SmartWalk.Infrastructure/ . . . . . . . . . . . . . . . . . Infrastructural nodes
-│   │   ├── SmartWalk.<Project>.Test/  . . . . . . . . . . . . . . . . . . . . . . Unit tests
-│   │   └── WolfGarbe.PruningRadixTrie/ . . . . . . . . . . . . . . . . . External dependency
-│   └── frontend/ . . . . . . . . . . . . . . . . . . . . . . . . . . Single-page application
-│       ├── Dockerfile
-│       ├── package.json
-│       ├── README.md
-│       ├── tsconfig.json
-│       ├── typedoc.json
-│       ├── config/ . . . . . . . . . . . . . . . . . . . . . . . . Nginx configuration files
-│       ├── public/  . . . . . . . . . . . . . . . . . . . . . . . . . Icons, main page, etc.
-│       └── src/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . React application
-├── data/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Data preparation
-│   ├── docker-compose.yaml
-│   ├── Makefile
-│   ├── advice/ . . . . . . . . . . . . . . . . . . . . . . . . Collect data for autocomplete
-│   ├── assets/
-│   ├── dbpedia/  . . . . . . . . . . . . . . . . . . . . . . . . . . Pipeline for DBPedia KG
-│   ├── dump/ . . . . . . . . . . . . . . . . . . . . . . . Dump database state to text files
-│   ├── init/  . . . . . . . . . . . . . . . . . . . . . . Create folders, restore deps, etc.
-│   ├── osm/  . . . . . . . . . . . . . . . . . . . . . . . . . Pipeline for binary OSM files
-│   ├── restore/ . . . . . . . . . . . . . . . . . . . Restore database state from text files
-│   ├── shared/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . Shared functionality
-│   ├── taginfo/ . . . . . . . . . . . . . . . . . . . . . . . . . . Pipeline for Taginfo API
-│   ├── wikidata-create/ . . . . . . . . . . . . . . . . . . . . . . Pipeline for Wikidata KG
-│   └── wikidata-enrich/ . . . . . . . . . . . . . . . . . . . . . . Pipeline for Wikidata KG
-├── infra/ . . . . . . . . . . . . . . . . . . . . . . . . (?)
-│   ├── .env.development
-│   ├── .env.production
-│   ├── Dockerfile.routing
-│   ├── docker-compose.development.database.yaml
-│   ├── docker-compose.development.routing.yaml
-│   └── docker-compose.production.yaml
-└── misc/
-    ├── contneg/ . . . . . . . . . . . . . . . . . . . . . . . . . . . KG content negotiation
-    ├── ellipse/ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Bounding ellipse
-    ├── epsg/  . . . . . . . . . . . . . . . . . . . . . . . . . . WGS84 to/from Web Mercator
-    ├── perf/ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Performance tests
-    └── query/ . . . . . . . . . . . . . . . . . . . . . . . . JSON-schema for search queries
+│   ├── backend/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . Web API application
+│   │   ├── Dockerfile . . . . . . . . . . . . . . . . . . . . . . *backend* image definition
+│   │   ├── README.md
+│   │   ├── SmartWalk.Api/ . . . . . . . . . . . . . . . . . . . . . . . . Presentation layer
+│   │   ├── SmartWalk.Application/ . . . . . . . . . . . . . . . . . . . Handlers (use cases)
+│   │   ├── SmartWalk.Core/  . . . . . . . . . . . . . . . . . . . . . . . . . . Domain logic
+│   │   ├── SmartWalk.Infrastructure/ . . . . . . . . . . . . . . . . . Infrastructural nodes
+│   │   ├── SmartWalk.<Project>.Test/  . . . . . . . . . . . . . . . . . . . . . . Unit tests
+│   │   ├── WolfGarbe.PruningRadixTrie/ . . . . . . . . . . . . . . . . . External dependency
+│   │   └── ...
+│   └── frontend/ . . . . . . . . . . . . . . . . . . . . . . . . . . Single-page application
+│       ├── Dockerfile
+│       ├── README.md
+│       ├── config/ . . . . . . . . . . . . . . . . . . . . . . . . . . . Nginx configuration
+│       ├── public/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Static files
+│       └── src/
+│           ├── components/  . . . . . . . . . . . . . . . . . . . . . . . . React components
+│           └── features/  . . . . . . . . . . . . . . . . . . . . . . . . . Hooks and slices
+├── data/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Data pipelines
+├── infra/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Environment files
+└── misc/ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Miscellanea
 ```
+
+The content of each folder is explained below.
 
 ## Architecture
 
-The architecture of the application is demonstrated using elements of the [C4 model](https://c4model.com/). *SmartWalk* is composed of *four* interconnected containers: the `Frontend`, `Backend`, `Database`, and `Routing`. The first two are containerized applications from the `./app/` folder. The last ones are [osrm-backend](https://hub.docker.com/r/osrm/osrm-backend) and [mongo](https://hub.docker.com/_/mongo) images from Docker Hub.
+The architecture of the application is demonstrated using elements of the [C4 model](https://c4model.com/). *SmartWalk* is composed of *four* interconnected containers: the `Frontend`, `Backend`, `Database`, and `Routing`. The first two are containerized applications from the `./app/` folder. The last ones are containers based on [osrm-backend](https://hub.docker.com/r/osrm/osrm-backend) and [mongo](https://hub.docker.com/_/mongo) Docker images that supply business logic with actual data.
 
-`OpenStreetMap` and `Solid Server` are external software systems used by the `Frontend` in a way that is explained below.
-
-![architecture](./img/c4-container-diagram.drawio.svg)
+![container diagram](./img/c4-container-diagram.svg)
 
 ## Frontend
 
+The frontend is a React-based single-page application, serving as an entry point to the application and offering a rich user experience. Its source code is located in the `./app/frontend/`. The following abstractions carry out intended functionality.
+
+![component diagram frontend](./img/c4-component-diagram-frontend.svg)
+
+`Map` is responsible for loading tiles, drawing markers and vector geometries on a map. The `LeafletMap` is a concrete implementation for the `OSM` map.
+
+`Storage` is an abstraction that unifies methods for accessing both device and personal storages. Data are stored on a device in IndexedDB with the help of the `DeviceStorage` and pushed to a Solid server by the `SolidStorage`.
+
+`SmartWalkAPI` is a set of function defined in the `smartwalk.ts` file for retrieving data from the backend via HTTP protocol.
+
+`PanelDrawer` implements the user interface.
+
+Finally, `SessionProvider` ensures the login dialog and handles the proper switch over to the `Solid Session` panel.
+
 Code documentation generated by [TypeDoc](https://typedoc.org/) is available at [**dev-frontend**](https://zhukovdm.github.io/smartwalk-docs/dev-frontend/).
-
-
 
 ### State management
 
@@ -82,29 +73,40 @@ Redux container for serializable data and Context API for non-serializable.
 
 ### Data storages
 
+User data are stored either in IndexedDB or Solid pod.
+
 Two kinds of data storages are supported: device storage and Solid pods. The former is , and the latter is a concept emerged recently.
 
 Solid storage
 
 ## Backend
 
+All searching and planning functionality resides within the backend.
+
+![component diagram backend](./img/c4-component-diagram-backend.svg)
+
 Code documentation generated by [Doxygen](https://www.doxygen.nl/) is available at [**dev-backend**](https://zhukovdm.github.io/smartwalk-docs/dev-backend/).
 
-### SmartWalk.Api
+### HTTP endpoints
 
 All The project uses standardized OpenAPI
 
-**GET /advice/keywords/**
+Swagger documentation is available at [swagger.yaml](http://localhost:5017/swagger/v1/swagger.yaml) whenever `Backend` container is up and running or at [SwaggerHub](https://app.swaggerhub.com/apis/zhukovdm/smartwalk/).
 
-**GET /search/routes, places/, direcs/** handle entity search queries and accept `query` parameter.
+**GET /api/advice/keywords** <br>
+&emsp;&emsp;&emsp; suggests up to `count` relevant keywords for a given `prefix`.
 
-**GET /entity/places/{smartId}** gets the full representation of a place by identifier.
+**GET /api/search/routes, /places, /direcs** <br>
+&emsp;&emsp;&emsp; handle entity search queries and accept `query` parameter.
 
-Once the backend is up and running 
+**GET /api/entity/places/{smartId}** <br>
+&emsp;&emsp;&emsp; gets the full representation of a place by identifier.
 
-Swagger documentation is available at [localhost](http://localhost:5017/swagger/index.html) whenever backend container is up and running or at [SwaggerHub](https://app.swaggerhub.com/apis/zhukovdm/smartwalk/).
+**ADVICE:** Unfortunately, not all endpoints provide examples. To support caching, *search* queries and category definitions are passed around as serialized and percent-encoded JSON objects. Their internal structure is given in [routes.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/routes.json), [places.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/places.json), and [direcs.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/direcs.json). Alternatively, you could refer to type definitions.
 
-Unfortunately, not all endpoints provide examples. Due to the statelessness of the backend to enable caching, search queries are represented as percent-encoded serialized JSON objects. Detailed information regarding their internal structure is given in the following JSON-schema files: [](), [](), and [](). Alternatively, you could refer to type definitions [](), [](), and []().
+### SmartWalk.Api
+
+?
 
 ### SmartWalk.Application
 
@@ -118,16 +120,36 @@ Unfortunately, not all endpoints provide examples. Due to the statelessness of t
 
 ?
 
-## ETL pipelines
+## Data pipelines
 
-`./data/` folder their meaning is roughly explained in there.
+Besides the application source code, there are small task-oriented programs in the `./data/` folder to carry out the [**Data preparation**](./adm.md#data-preparation) phase.
 
-```js
-const e = await pipeline.e(new Source(...));
-const t = await pipeline.t(e);
-const l = await pipeline.l(new Target(...), t);
+- `taginfo/` loads key statistics from Taginfo into key-specific .json files.
+
+- `osm/` combines information stored in Taginfo files, OSM binary files, and fetched from Overpass API to create new places or update existing ones.
+
+- `wikidata-create/` creates simple stubs for places that do not exist yet.
+
+- `wikidata-enrich/` updates the current dataset with the latest information from the Wikidata knowledge graph.
+
+- `dbpedia/` does the same action as `wikidata-enrich/` but for DBPedia.
+
+- `advice/` collects statistics about keywords and attributes across the dataset and recreates advice items.
+
+- `dump/` dumps places and keywords into `.txt` files.
+
+- `restore/` restores place and keyword collections from `.txt` dump files.
+
+## Testing
+
+To run frontend tests, navigate to the application's folder and enter:
+
+```bash
+$ npm run tests
 ```
 
-## Test environment
+To run backend tests, navigate to the `./app/backend/` folder and enter:
 
-Learn more about the development environment at the [**link**](./adm.md#development-environment). This guide explains how to configure and control individual parts of the system to achieve desired behavior.
+```bash
+$ dotnet test
+```

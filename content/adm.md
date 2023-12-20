@@ -6,7 +6,7 @@ Once data is ready, read [**Running the app**](#running-the-app) to learn how to
 
 If something is not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
 
-## System requirements
+## Prerequisites
 
 SmartWalk is essentially cross-platform. However, Unix utilities simplify certain aspects of system maintenance. We assume that the application will run on *Unix-like* environments, such as Linux or [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about).
 
