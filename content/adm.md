@@ -12,17 +12,14 @@ SmartWalk is essentially cross-platform. However, Unix utilities simplify certai
 
 Please ensure that the following programs are installed on the target system:
 
-- `bash`
-- `docker`
-- `dotnet-sdk-6.0`
-- `git`
-- `make`
-- `node v18.x` (install via [nvm](https://github.com/nvm-sh/nvm#install--update-script))
-- `tar`
-- `wget`
+- Docker
+- .NET SDK v6.0
+- Git
+- GNU Bash, Make, Tar, and Wget
+- Node.js v18.x (install via [nvm](https://github.com/nvm-sh/nvm#install--update-script))
 
 !!! warning
-    If mentioned, preserve versions of packages because of the library dependencies.
+    If mentioned, preserve versions of packages due to library dependencies.
 
 Clone the repository with *submodules* and navigate to its root folder:
 
