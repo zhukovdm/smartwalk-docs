@@ -4,7 +4,7 @@
   "homepage": "https://zhukovdm.github.io/smartwalk-docs",
   "description": "Documentation of the SmartWalk project",
   "scripts": {
-    "deploy": "gh-pages -d ./site"
+    "deploy": "gh-pages -d ./site/"
   },
   "keywords": [
     "documentation"

@@ -6,11 +6,9 @@ Once data is ready, read [**Running the app**](#running-the-app) to learn how to
 
 If something is not working as expected, you might find [**Troubleshooting**](#troubleshooting) helpful before searching for a solution on the Web.
 
-## Prerequisites
+## System requirements
 
-We assume that the application will run on *Unix-like* environments, such as Linux or [WSL](https://learn.microsoft.com/en-us/windows/wsl/about).
-
-**ADVICE:** SmartWalk is essentially multiplatform. The only real limitation is having a platform supported by [Docker](https://docs.docker.com/engine/faq/#does-docker-run-on-linux-macos-and-windows). However, Unix utilities simplify certain aspects of system maintenance.
+SmartWalk is essentially cross-platform. However, Unix utilities simplify certain aspects of system maintenance. We assume that the application will run on *Unix-like* environments, such as Linux or [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about).
 
 Please ensure that the following programs are installed on the target system:
 
@@ -19,20 +17,21 @@ Please ensure that the following programs are installed on the target system:
 - `dotnet-sdk-6.0`
 - `git`
 - `make`
-- `node v18.x` (can be installed using [nvm](https://github.com/nvm-sh/nvm#install--update-script))
+- `node v18.x` (install via [nvm](https://github.com/nvm-sh/nvm#install--update-script))
+- `tar`
 - `wget`
 
-!!! note
-    If mentioned, preserve proper versions because of the library dependencies.
+!!! warning
+    If mentioned, preserve versions of packages because of the library dependencies.
 
-**ADVICE:** Docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly. See details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
-
-Clone the repository and navigate to its root folder:
+Clone the repository with *submodules* and navigate to its root folder:
 
 ```bash
 $ git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
 $ cd ./smartwalk/
 ```
+
+**ADVICE:** Docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly. See details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 ## Data preparation
 
@@ -41,9 +40,9 @@ This section explains how to prepare data for two system components: the [**Data
 !!! warning
     The complexity of extracting and building data structures depends on the size of a particular region and might be time- and resource-consuming, especially when processing `OSM` dumps.
 
-### Environment
+### Initialization
 
-Navigate to the `data` folder, assuming You are in the root folder of the `smartwalk` repository:
+Navigate to the `data` folder, assuming you are in the root folder of the `smartwalk` repository:
 
 ```bash
 $ cd ./data/
