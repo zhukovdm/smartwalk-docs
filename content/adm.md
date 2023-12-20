@@ -151,7 +151,7 @@ The system supports incremental updates to incorporate new versions of datasets.
 
 `advice` should be re-generated whenever the database state is altered.
 
-![step dependencies](./img/data-prep-deps.drawio.svg)
+![step dependencies](./img/data-prep-deps.svg)
 
 ### Dumping database
 
@@ -238,7 +238,7 @@ The source code uses `REACT_APP_SMARTWALK_API_ORIGIN` environment variable. Set 
 
 This environment is a tightly coupled bundle consisting of four interconnected Docker containers; its detailed schema is shown in the picture below.
 
-![docker production setup](./img/docker-production-setup.drawio.svg)
+![docker production setup](./img/docker-production-setup.svg)
 
 !!! note
     The `database` exposes port `27017` for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.
