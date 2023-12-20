@@ -125,7 +125,7 @@ We define five HTTP-based endpoints with the supported `application/json` media 
 **GET /api/entity/places/{smartId}** <br>
 &emsp;&emsp;&emsp; fetch the full representation of a place by `smartId`.
 
-The API is documented using the Swashbuckle library, a toolset compatible with the OpenAPI specification. Swagger documentation is available at [swagger.yaml](http://localhost:5017/swagger/v1/swagger.yaml) whenever `Backend` container is up and running or at [SwaggerHub](https://app.swaggerhub.com/apis/zhukovdm/smartwalk/).
+The API is documented using the Swashbuckle library, a toolset compatible with the OpenAPI specification. Swagger documentation is available at [swagger.yaml](http://localhost:5017/swagger/v1/swagger.yaml) whenever `Backend` container is up and running in development mode or at [SwaggerHub](https://app.swaggerhub.com/apis/zhukovdm/smartwalk/).
 
 **ADVICE:** Unfortunately, not all endpoints provide examples. To support caching, *search* queries and category definitions are passed around as serialized and percent-encoded JSON objects. Their internal structure is given in [routes.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/routes.json), [places.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/places.json), and [direcs.json](https://github.com/zhukovdm/smartwalk/tree/main/misc/query/direcs.json). Alternatively, you could refer to type definitions.
 
@@ -151,7 +151,7 @@ Besides the application source code, there are small task-oriented programs in t
 
 ## Testing
 
-Tests for the frontend functions and components are located in nested `__tests__/` folders. To run them, navigate to the `./app/frontend` folder and enter:
+Tests for the frontend functions and components are located in nested `__tests__/` folders. To run them, navigate to the `./app/frontend/` folder and enter:
 
 ```bash
 $ npm run tests
