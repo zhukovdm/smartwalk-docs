@@ -45,7 +45,7 @@ Navigate to the `data` folder, assuming you are in the root folder of the `smart
 $ cd ./data/
 ```
 
-Decide which part of the world you are interested in. Download `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in `./assets/osm-maps/`. As an example, the following command makes use of the `wget` utility to obtain the latest dump of the Czech Republic:
+Decide which part of the world you are interested in. Download the corresponding `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in the `./assets/osm-maps/` folder. As an example, the following command makes use of the `wget` utility to obtain the latest dump of the Czech Republic:
 
 ```bash
 $ wget \
@@ -55,7 +55,7 @@ $ wget \
 
 Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside this box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
 
-Create folders necessary for storing data and restore project dependencies:
+Create folders for storing data, and restore project dependencies:
 
 ```bash
 $ make init
@@ -63,15 +63,15 @@ $ make init
 
 ### Routing engine
 
-Build data structure for the routing engine:
+Build a data structure for the routing engine:
 
 ```bash
 $ make routing-engine
 ```
 
-The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds a search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/`.
+The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds the search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/` folder.
 
-**ADVICE:** An instance of the OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
+**ADVICE:** An instance of OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
 
 **ADVICE:** It is possible to extract routing data for several regions and keep all files in the same folder as long as the original `pbf`-files have distinct names. Use [environment variables](#environment-variables) to select a part of the world on engine start.
 
@@ -91,7 +91,7 @@ Clean up all previous data, create new collections and indexes:
 $ make database-init
 ```
 
-Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in `./assets/taginfo/`:
+Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in the `./assets/taginfo/` folder:
 
 ```bash
 $ make taginfo
@@ -105,27 +105,27 @@ Extract entities from the `pbf`-file:
 $ make database-osm
 ```
 
-As part of the procedure, the routine makes several `GET` requests to the [Overpass API](https://overpass-api.de/api/interpreter). A query is configured to time out after 100s, but the server usually responds within 10s at most.
+As part of the procedure, the routine makes several `GET` requests to the [Overpass API](https://overpass-api.de/api/interpreter). A query is configured to time out after 100 seconds, though the server usually responds within the first 10.
 
-**ADVICE:** To make queries feasible for the external API, the selected bounding box is divided into smaller squares. The recipe has two switches `--rows` and `--cols` defining the grid.
+**ADVICE:** To make queries feasible for the Overpass API, the selected bounding box is divided into smaller pieces. The recipe has two switches `--rows` and `--cols` defining the grid.
 
-Create stubs for entities existing in the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
+Create stubs for new entities from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) knowledge graph:
 
 ```bash
 $ make database-wikidata-create
 ```
 
-The script attempts to fetch data from the SPARQL endpoint. Requests may time out after *one* minute. Large regions are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.
+The script attempts to fetch data from a SPARQL endpoint. Requests may time out after *one* minute. Large regions are more likely to result in failures. Hence, the numeric constants were specifically chosen for the test setup and may not be suitable for other cases.
 
 **ADVICE:** The recipe has `--rows` and `--cols` switches with functionality similar to `database-osm`.
 
-Enrich existing entities by information from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page):
+Enrich the current dataset with information from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page):
 
 ```bash
 $ make database-wikidata-enrich
 ```
 
-Enrich existing entities by information from [DBPedia](https://www.dbpedia.org/about/) knowledge graph:
+Enrich the current dataset with information from the [DBPedia](https://www.dbpedia.org/about/) knowledge graph:
 
 ```bash
 $ make database-dbpedia
@@ -143,7 +143,7 @@ Finally, stop the database instance:
 $ docker compose down
 ```
 
-All relevant files are stored in `./assets/database/`.
+All relevant files are stored in the `./assets/database/` folder.
 
 ### Incremental updates
 
@@ -155,15 +155,15 @@ The system supports incremental updates to incorporate new versions of datasets.
 
 ### Dumping database
 
-Create a dump of the current database state:
+Dump the current database state:
 
 ```bash
 $ make dump
 ```
 
-The command creates `keyword.txt` and `place.txt` in `./assets/dump/`.
+The command creates `keyword.txt` and `place.txt` in the `./assets/dump/` folder.
 
-If necessary, archive files for publishing:
+If necessary, archive these files for publishing:
 
 ```bash
 $ cd ./assets/dump/
@@ -172,17 +172,17 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 
 ### Restoring database
 
-Clean up the database and restore the dump from files:
+Clean up the database and restore the state from files:
 
 ```bash
 $ make database-init && make restore
 ```
 
-The `restore` procedure expects *both files* to be in `./assets/dump/`. Otherwise, it fails.
+The `restore` procedure expects *both files* to be in the `./assets/dump/` folder. Otherwise, it fails.
 
-Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). Those having `prod` in their names are the most data-rich covering [Prague](https://en.wikipedia.org/wiki/Prague).
+Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). Those having `prod` in their names are the most data-rich covering beautiful [Prague](https://en.wikipedia.org/wiki/Prague).
 
-Unpack a downloaded archive:
+If necessary, unpack a downloaded archive as follows:
 
 ```bash
 $ cd ./assets/dump/
@@ -197,7 +197,7 @@ The purpose of this section is to explain how to start the system in development
 
 This environment is intended primarily for developers and testers. It enables controlling parts of the system independently.
 
-There are *four* system components involved in the setup: the frontend, backend, database, and routing engine. The first two run directly in the terminal, while the last two are Docker containers. The table below summarizes their roles and port mapping.
+There are *four* system components involved in the setup: the frontend, backend, database, and routing engine. The first two run directly in the terminal, while the last two are Docker containers. The table below summarizes their roles and the mapping of system ports.
 
 | Component | Ports             | Role                                  |
 |-----------|-------------------|---------------------------------------|
@@ -224,19 +224,19 @@ Set `OSRM_REGION_FILE` in [.env.development](https://github.com/zhukovdm/smartwa
 The project is located in `./app/backend/`. Run `dotnet run` from there to start the backend in the terminal, and stop it by pressing `Ctrl+C`. Read more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/README.md).
 
 !!! warning
-    This component requires `database` to be up and running. Otherwise, it fails to start.
+    This component requires the `database` to be up and running. Otherwise, it fails to start.
 
-The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to run dependencies on different ports.
+The source code uses `SMARTWALK_MONGO_CONN_STR` and `SMARTWALK_OSRM_BASE_URL` environment variables. Adjust [launchSettings.json](https://github.com/zhukovdm/smartwalk/blob/main/app/backend/SmartWalk.Api/Properties/launchSettings.json) respectively if you wish to alter the default port configuration.
 
 #### Frontend
 
 Find the project in `./app/frontend/`. Run `npm start` from there to start the frontend in the terminal, and stop it by pressing `Ctrl+C`. Learn more about other commands in [README.md](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/README.md).
 
-The source code uses `REACT_APP_SMARTWALK_API_ORIGIN` environment variable. Set its value in [.env.development](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/.env.development) if you wish to run backend on another port.
+The source code uses `REACT_APP_SMARTWALK_API_ORIGIN` environment variable. Set its value in the [.env.development](https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/.env.development) file if you wish to run backend on another port.
 
 ### Production environment
 
-This environment is a tightly coupled bundle consisting of four interconnected Docker containers; its detailed schema is shown in the picture below:
+This environment is a tightly coupled bundle consisting of four interconnected Docker containers; its detailed schema is shown in the picture below.
 
 ![docker production setup](./img/docker-production-setup.drawio.svg)
 
@@ -251,13 +251,13 @@ $ make prod[-stop]
 
 **ADVICE:** All containers implement healthcheck, run `docker container ls` to see their state.
 
-The respective environment variables are defined in [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
+The respective environment variables are defined in the [.env.production](https://github.com/zhukovdm/smartwalk/blob/main/infra/.env.production) file.
 
 ## Troubleshooting
 
 <font size="4">**WSL runs out of memory**</font>
 
-If your `WSL` consumes too much memory, Windows might suddenly terminate the entire process without prior notice. Try to mitigate the issue by extending the swap file; set `swap=XXGB` in the `.wslconfig`. For more details, see [Example .wslconfig file](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
+If your `WSL` consumes too much memory, Windows might suddenly terminate the entire process without prior notice. Try to mitigate the issue by extending the swap file; set `swap=XXGB` in the `.wslconfig` file. For more details, see [Example .wslconfig file](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#example-wslconfig-file).
 
 <font size="4">**A container starts for too long**</font>
 
@@ -287,7 +287,7 @@ $ docker image rm smartwalk/routing
 Clean up unused Docker files (cached build files, dangling images and volumes, etc.):
 
 !!! warning
-    Use these commands with caution as it may introduce undesired changes into your Docker host. Read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
+    Use this command with caution as it may introduce undesired changes into your Docker host. Read about side effects [here](https://docs.docker.com/engine/reference/commandline/system_prune/).
 
 ```bash
 $ docker system prune --volumes
