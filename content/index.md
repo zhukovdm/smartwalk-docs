@@ -1,6 +1,6 @@
 # Welcome to SmartWalk Docs
 
-This page contains the documentation of the [**SmartWalk**](https://www.github.com/zhukovdm/smartwalk) project.
+This page contains the documentation for the [**SmartWalk**](https://www.github.com/zhukovdm/smartwalk) project.
 
 [**User's documentation**](./usr.md) gives an overview of how to use the application and accomplish basic tasks, such as searching for and managing entities.
 
