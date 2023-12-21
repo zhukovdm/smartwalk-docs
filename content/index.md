@@ -7,3 +7,9 @@ This page contains the documentation for the [**SmartWalk**](https://www.github.
 [**Programmer's guide**](./prg.md) brings clarity into the application architecture and code organization.
 
 [**Administrator's guide**](./adm.md) provides instructions for preparing a dataset, running the application in development or production mode on a personal computer, and troubleshooting potential issues.
+
+## Credits
+
+Map tiles in the user interface are attributed to [&#169;OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+
+Other pictures and diagrams were created with [Draw.io](https://draw.io/) drawing software.
