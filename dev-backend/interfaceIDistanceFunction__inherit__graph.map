@@ -1,0 +1,5 @@
+<map id="IDistanceFunction" name="IDistanceFunction">
+<area shape="rect" id="node1" title="Distance function abstraction." alt="" coords="141,5,280,32"/>
+<area shape="rect" id="node2" href="$classHaversineDistanceFunction.html" title="Scaled wrapper over the Haversine formula." alt="" coords="5,80,205,107"/>
+<area shape="rect" id="node3" href="$classMatrixDistanceFunction.html" title="Wrapper over matrix&#45;based distance function calculated by a routing engine." alt="" coords="229,80,405,107"/>
+</map>

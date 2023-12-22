@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$interfaceIQueryParser.html" title="Query parser and validator." alt="" coords="5,5,168,32"/>
-<area shape="rect" id="node2" href="$classQueryParserBase.html" title=" " alt="" coords="216,5,407,32"/>
+<area shape="rect" id="node2" href="$classQueryParserBase.html" title="Standard parser for search query strings." alt="" coords="216,5,407,32"/>
 </map>

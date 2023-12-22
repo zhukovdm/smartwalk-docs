@@ -9,14 +9,14 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>User documentation - SmartWalk Docs</title>
+  <title>User's documentation - SmartWalk Docs</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "User documentation";
+    var mkdocs_page_name = "User's documentation";
     var mkdocs_page_input_path = "usr.md";
     var mkdocs_page_url = null;
   </script>
@@ -50,17 +50,27 @@
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">User documentation</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">User's documentation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#route-search">Route search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#place-search">Place search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#direction-search">Direction search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#favorites">Favorites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solid-pod-advanced">Solid pod (advanced)</a>
+    </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../dev/">Developer manual</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../prg/">Programmer's guide</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../adm/">Administrator guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../adm/">Administrator's guide</a>
                     </li>
                 </ul>
       </div>
@@ -84,7 +94,7 @@
     
       
     
-    <li>User documentation</li>
+    <li>User's documentation</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/zhukovdm/smartwalk-docs/edit/master/docs/usr.md"
@@ -98,8 +108,62 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="user-documentation">User documentation</h1>
-<p>TODO</p>
+                <h1 id="users-documentation">User's documentation</h1>
+<p>The application provides the same level of user experience on <em>desktop</em> and <em>mobile</em> devices.</p>
+<h2 id="route-search">Route search</h2>
+<p>Navigate to the panel for searching routes:</p>
+<p><img alt="routes panel" src="../img/search-routes-default.svg" /></p>
+<p>Add a starting point and destination either on the map or one of your <code>Favorites</code>:</p>
+<p><img alt="add point" src="../img/uc01-add-point.svg" /></p>
+<p>Custom points added directly on the map (not one of the <code>Favorites</code>) are <em>movable</em>. Furthermore, you can clean up an occupied slot or swap points.</p>
+<p>Add categories of places that should appear on any found route:</p>
+<p><img alt="add category" src="../img/uc02-add-category.svg" /></p>
+<p>A category is composed of a keyword and keyword-specific attribute filters. The application will match only places associated with the keyword and that satisfy all activated attribute filters.</p>
+<p>There are <em>five</em> possible types of attribute filters: existential (shown in the picture above), boolean, numeric, textual, and include/exclude.</p>
+<p>To edit a category, click on its name. Press the <code>x</code> button to delete the category.</p>
+<p>If necessary, order the categories using arrows:</p>
+<p><img alt="add arrow" src="../img/uc03-add-arrow.svg" /></p>
+<p>Once all input parameters are set, press <code>Search</code> to initiate a request:</p>
+<p><img alt="routes config" src="../img/uc04-search-routes-config.svg" /></p>
+<p>The result of a route search should have a structure similar to the one depicted below:</p>
+<p><img alt="routes result" src="../img/uc04-search-routes-result.svg" /></p>
+<p>You may (un-)hide points associated with a category by toggling the corresponding checkbox.</p>
+<p>If necessary, save the selected route with a custom name:</p>
+<p><img alt="save route" src="../img/save-route.svg" /></p>
+<p>The route can be <em>modified</em> by copying its waypoints into the <a href="./#direction-search"><strong>direction</strong></a> sequence.</p>
+<h2 id="place-search">Place search</h2>
+<p>To search for places, follow a similar procedure. Navigate to the <code>Places</code> panel, select a center point, adjust the circle's radius, and optionally add categories. If no category is specified, the system will attempt to retrieve <em>all</em> matching places within the circle.</p>
+<p><img alt="search places" src="../img/search-places.svg" /></p>
+<p>The result of a place search is shown below.</p>
+<p><img alt="result places" src="../img/result-places.svg" /></p>
+<p>Navigate to the detailed view of a place by clicking the blue link.</p>
+<p><img alt="detailed view" src="../img/place-detailed-view.svg" /></p>
+<p>A place can be stored with a <em>custom</em> name or appended to the current <a href="./#direction-search"><strong>direction</strong></a> sequence. Use the menu accessible via the three-dot button.</p>
+<h2 id="direction-search">Direction search</h2>
+<p>Directions are searched in the same manner as the previous two types of entities. Add at least two points to the sequence and press <code>Search</code>.</p>
+<p><img alt="search direcs" src="../img/search-direcs.svg" /></p>
+<p>After receiving a response from the backend, paginated results are displayed in the panel.</p>
+<p><img alt="result direcs" src="../img/result-direcs.svg" /></p>
+<h2 id="favorites">Favorites</h2>
+<p>All stored entities (routes, places, and directions) appear in the <code>Favorites</code> panel. Basic operations, such as view, edit, append (or modify), and delete, are available from the drop-down menu.</p>
+<p><img alt="favorites" src="../img/favorites.svg" /></p>
+<p>Create a custom place (home, work, etc.) with a name and location through the simple dialog in the <code>My Places</code> collapsible region.</p>
+<h2 id="solid-pod-advanced">Solid pod (advanced)</h2>
+<p>By default, personal data is stored locally on your device in <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a>, a standardized in-browser database. Additionally, the application supports <em>decentralized</em> Solid pods.</p>
+<p>Solid enables you to regain true data ownership. Learn more about this technology at:</p>
+<p align="center">
+  <a href="https://solidproject.org/about">https://solidproject.org/about</a>.
+</p>
+
+<p><em>SmartWalk</em> supports <a href="https://ap.inrupt.com/">Inrupt PodSpaces</a> out of the box, which is currently in Developer Preview. The application has also been tested on <a href="https://github.com/CommunitySolidServer/">Community</a> and <a href="https://github.com/nodeSolidServer/">Node</a> Solid servers, yielding positive outcomes.</p>
+<p><span style="color: red"><strong>(!)</strong></span> The application assumes that your data is stored in the <code>${storage-root}/smartwalk/</code> container.</p>
+<p>Create a profile and Solid pod at <a href="https://start.inrupt.com/profile">https://start.inrupt.com/profile</a>.</p>
+<p>Log in to a Solid server, grant the application access to your pod, and wait until the <code>Solid Session</code> panel is opened.</p>
+<p><img alt="solid login" src="../img/solid-login.svg" /></p>
+<p>Now, the application is connected to the server. Select a Solid pod from the drop-down list and press the <code>Activate Pod</code> button. The application will initialize the pod, redirect to the <code>Favorites</code> panel, and download entities into the local state.</p>
+<p><img alt="solid activ" src="../img/solid-activ.svg" /></p>
+<p>After that, you can use your Solid pod as if it were device storage.</p>
+<p>To log out, press the <code>Solid</code> button in the upper right corner, and then click the <code>Log Out</code> button.</p>
               
             </div>
           </div>
@@ -107,7 +171,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dev/" class="btn btn-neutral float-right" title="Developer manual">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../prg/" class="btn btn-neutral float-right" title="Programmer's guide">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -141,7 +205,7 @@
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../dev/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../prg/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

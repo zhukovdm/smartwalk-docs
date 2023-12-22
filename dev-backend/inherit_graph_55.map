@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classQueryParserBase.html" title=" " alt="" coords="5,5,252,61"/>
-<area shape="rect" id="node2" href="$classSearchRoutesQueryParser.html" title="Parser specific for /search/routes requests." alt="" coords="300,20,491,47"/>
+<area shape="rect" id="node1" href="$classRequestValidatorBase.html" title=" " alt="" coords="5,5,171,47"/>
+<area shape="rect" id="node2" href="$classAdviseKeywordsValidator.html" title="Handler&#45;specific validator." alt="" coords="219,13,405,39"/>
 </map>

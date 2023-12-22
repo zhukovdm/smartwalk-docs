@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distancematrix_2ecs_516',['DistanceMatrix.cs',['../DistanceMatrix_8cs.html',1,'']]]
+  ['distancefunction_2ecs_505',['DistanceFunction.cs',['../DistanceFunction_8cs.html',1,'']]]
 ];

@@ -48,19 +48,23 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#credits">Credits</a>
+    </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="usr/">User documentation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="usr/">User's documentation</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="dev/">Developer manual</a>
+                    <li class="toctree-l1"><a class="reference internal" href="prg/">Programmer's guide</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="adm/">Administrator guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="adm/">Administrator's guide</a>
                     </li>
                 </ul>
       </div>
@@ -99,10 +103,30 @@
             <div class="section">
               
                 <h1 id="welcome-to-smartwalk-docs">Welcome to SmartWalk Docs</h1>
-<p>This page is the documentation of the <a href="https://www.github.com/zhukovdm/smartwalk">SmartWalk</a> project.</p>
-<p><a href="usr/"><strong>[User documentation]</strong></a> describes how to accomplish basic task within the system, including entity search and management.</p>
-<p><a href="dev/"><strong>[Developer manual]</strong></a> brings clarity into architecture and code organization.</p>
-<p><a href="adm/"><strong>[Administrator guide]</strong></a> explains how to set up an instance of the application on your personal computer, including data ingestion, deployment, and troubleshooting.</p>
+<p>This page contains the documentation for <a href="https://www.github.com/zhukovdm/smartwalk"><strong>SmartWalk</strong></a>, a web application for keyword-aware walking route search.</p>
+<p>Check out the <a href="https://smartwalk.vercel.app/"><strong>Demo</strong></a> (although <em>not</em> connected to a backend) to get a sense of how the application might look and feel.</p>
+<p><a href="usr/"><strong>User's documentation</strong></a> gives an overview of how to use the application and accomplish basic tasks, such as searching for and managing entities.</p>
+<p><a href="prg/"><strong>Programmer's guide</strong></a> brings clarity into the application architecture and code organization.</p>
+<p><a href="adm/"><strong>Administrator's guide</strong></a> provides instructions for preparing a dataset, running the application in development or production mode on a personal computer, and troubleshooting potential issues.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Most of the mainstream web mapping applications (<a href="https://mapy.cz/">Mapy.cz</a>, <a href="https://maps.google.com/">Google Maps</a>, etc.) implement explicit location-based <em>direction</em> search. A typical workflow involves building a sequence, with the following three steps applied for <em>each</em> waypoint.</p>
+<ol>
+<li>Search for places that might satisfy imposed constraints (e.g., a museum free of charge).</li>
+<li>Append one of them to the sequence, with possible manual reordering.</li>
+<li>New path is presented to the user right after the sequence configuration is altered.</li>
+</ol>
+<p><em>SmartWalk</em> enables users to formulate search queries in terms of <em>categories</em>. A category is composed of a <em>keyword</em> and <em>attribute filters</em>.</p>
+<p>Given a starting point, destination, set of categories, and maximum walking distance, <em>SmartWalk</em> attempts to find <em>routes</em> with a length never longer than the predefined limit that visit at least one place from each category.</p>
+<p>Besides routes, the application also supports <em>place</em> and standard location-based direction search.</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>
+<p>The pictures and diagrams were created with <a href="https://draw.io/">Draw.io</a> drawing software.</p>
+</li>
+<li>
+<p>Map tiles in the user interface are attributed to <a href="https://www.openstreetmap.org/copyright">&#169;OpenStreetMap</a> contributors.</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -110,7 +134,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="usr/" class="btn btn-neutral float-right" title="User documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="usr/" class="btn btn-neutral float-right" title="User's documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -159,5 +183,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2023-11-08 16:01:24.548113+00:00
+Build Date UTC : 2023-12-22 14:11:26.126150+00:00
 -->

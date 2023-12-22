@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readme_846',['README',['../md_WolfGarbe_PruningRadixTrie_README.html',1,'']]]
+  ['readme_825',['README',['../md_WolfGarbe_PruningRadixTrie_README.html',1,'']]]
 ];

@@ -27,9 +27,9 @@
 <section class="tsd-panel">
 <h4>Implements</h4>
 <ul class="tsd-hierarchy">
-<li><a href="../interfaces/domain_interfaces.IStorage.html" class="tsd-signature-type tsd-kind-interface">IStorage</a></li></ul></section><aside class="tsd-sources">
+<li><a href="../interfaces/domain_interfaces.Storage.html" class="tsd-signature-type tsd-kind-interface">Storage</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L7">src/utils/inmemStorage.ts:7</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L14">src/utils/inmemStorage.ts:14</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -44,12 +44,10 @@
 <div class="tsd-index-list"><a href="utils_inmemStorage.default.html#createDirec" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Direc</span></a>
 <a href="utils_inmemStorage.default.html#createPlace" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Place</span></a>
 <a href="utils_inmemStorage.default.html#createRoute" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Route</span></a>
-<a href="utils_inmemStorage.default.html#decentralized" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>decentralized</span></a>
 <a href="utils_inmemStorage.default.html#deleteDirec" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Direc</span></a>
 <a href="utils_inmemStorage.default.html#deletePlace" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Place</span></a>
 <a href="utils_inmemStorage.default.html#deleteRoute" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Route</span></a>
 <a href="utils_inmemStorage.default.html#deleteT" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>deleteT</span></a>
-<a href="utils_inmemStorage.default.html#device" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>device</span></a>
 <a href="utils_inmemStorage.default.html#getDirec" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Direc</span></a>
 <a href="utils_inmemStorage.default.html#getDirecIdentifiers" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Direc<wbr/>Identifiers</span></a>
 <a href="utils_inmemStorage.default.html#getPlace" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Place</span></a>
@@ -58,7 +56,7 @@
 <a href="utils_inmemStorage.default.html#getRouteIdentifiers" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Route<wbr/>Identifiers</span></a>
 <a href="utils_inmemStorage.default.html#getT" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getT</span></a>
 <a href="utils_inmemStorage.default.html#init" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>init</span></a>
-<a href="utils_inmemStorage.default.html#inmemory" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>inmemory</span></a>
+<a href="utils_inmemStorage.default.html#kind" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>kind</span></a>
 <a href="utils_inmemStorage.default.html#updateDirec" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Direc</span></a>
 <a href="utils_inmemStorage.default.html#updatePlace" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Place</span></a>
 <a href="utils_inmemStorage.default.html#updateRoute" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Route</span></a>
@@ -84,9 +82,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">direc</span>: <a href="../types/domain_types.StoredDirec.html" class="tsd-signature-type tsd-kind-type-alias">StoredDirec</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#createDirec">createDirec</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#createDirec">createDirec</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L43">src/utils/inmemStorage.ts:43</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L42">src/utils/inmemStorage.ts:42</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="createPlace" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>create<wbr/>Place</span><a href="#createPlace" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -98,9 +96,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">place</span>: <a href="../types/domain_types.StoredPlace.html" class="tsd-signature-type tsd-kind-type-alias">StoredPlace</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#createPlace">createPlace</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#createPlace">createPlace</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L35">src/utils/inmemStorage.ts:35</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L34">src/utils/inmemStorage.ts:34</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="createRoute" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>create<wbr/>Route</span><a href="#createRoute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -112,21 +110,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">route</span>: <a href="../types/domain_types.StoredRoute.html" class="tsd-signature-type tsd-kind-type-alias">StoredRoute</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#createRoute">createRoute</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#createRoute">createRoute</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L39">src/utils/inmemStorage.ts:39</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="decentralized" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>decentralized</span><a href="#decentralized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="decentralized.decentralized-1"><span class="tsd-kind-call-signature">decentralized</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#decentralized.decentralized-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Decentralized storage, such as Solid.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#decentralized">decentralized</a></p>
-<ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L21">src/utils/inmemStorage.ts:21</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L38">src/utils/inmemStorage.ts:38</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="deleteDirec" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>delete<wbr/>Direc</span><a href="#deleteDirec" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -138,9 +124,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">direcId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#deleteDirec">deleteDirec</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#deleteDirec">deleteDirec</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L107">src/utils/inmemStorage.ts:107</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L106">src/utils/inmemStorage.ts:106</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="deletePlace" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>delete<wbr/>Place</span><a href="#deletePlace" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -152,9 +138,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">placeId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#deletePlace">deletePlace</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#deletePlace">deletePlace</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L111">src/utils/inmemStorage.ts:111</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L110">src/utils/inmemStorage.ts:110</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="deleteRoute" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>delete<wbr/>Route</span><a href="#deleteRoute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -166,9 +152,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">routeId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#deleteRoute">deleteRoute</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#deleteRoute">deleteRoute</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L115">src/utils/inmemStorage.ts:115</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L114">src/utils/inmemStorage.ts:114</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="deleteT" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>deleteT</span><a href="#deleteT" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -188,19 +174,7 @@
 <h5><span class="tsd-kind-parameter">key</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L103">src/utils/inmemStorage.ts:103</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="device" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>device</span><a href="#device" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="device.device-1"><span class="tsd-kind-call-signature">device</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#device.device-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Data are persisted locally on the device.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#device">device</a></p>
-<ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L17">src/utils/inmemStorage.ts:17</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L102">src/utils/inmemStorage.ts:102</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getDirec" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Direc</span><a href="#getDirec" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -212,18 +186,18 @@
 <li>
 <h5><span class="tsd-kind-parameter">direcId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../types/domain_types.StoredDirec.html" class="tsd-signature-type tsd-kind-type-alias">StoredDirec</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getDirec">getDirec</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getDirec">getDirec</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L71">src/utils/inmemStorage.ts:71</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L70">src/utils/inmemStorage.ts:70</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getDirecIdentifiers" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Direc<wbr/>Identifiers</span><a href="#getDirecIdentifiers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getDirecIdentifiers.getDirecIdentifiers-1"><span class="tsd-kind-call-signature">get<wbr/>Direc<wbr/>Identifiers</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getDirecIdentifiers.getDirecIdentifiers-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getDirecIdentifiers">getDirecIdentifiers</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getDirecIdentifiers">getDirecIdentifiers</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L53">src/utils/inmemStorage.ts:53</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L52">src/utils/inmemStorage.ts:52</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getPlace" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Place</span><a href="#getPlace" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -235,18 +209,18 @@
 <li>
 <h5><span class="tsd-kind-parameter">placeId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../types/domain_types.StoredPlace.html" class="tsd-signature-type tsd-kind-type-alias">StoredPlace</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getPlace">getPlace</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getPlace">getPlace</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L75">src/utils/inmemStorage.ts:75</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L74">src/utils/inmemStorage.ts:74</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getPlaceIdentifiers" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Place<wbr/>Identifiers</span><a href="#getPlaceIdentifiers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getPlaceIdentifiers.getPlaceIdentifiers-1"><span class="tsd-kind-call-signature">get<wbr/>Place<wbr/>Identifiers</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getPlaceIdentifiers.getPlaceIdentifiers-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getPlaceIdentifiers">getPlaceIdentifiers</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getPlaceIdentifiers">getPlaceIdentifiers</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L57">src/utils/inmemStorage.ts:57</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L56">src/utils/inmemStorage.ts:56</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getRoute" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Route</span><a href="#getRoute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -258,18 +232,18 @@
 <li>
 <h5><span class="tsd-kind-parameter">routeId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../types/domain_types.StoredRoute.html" class="tsd-signature-type tsd-kind-type-alias">StoredRoute</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getRoute">getRoute</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getRoute">getRoute</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L79">src/utils/inmemStorage.ts:79</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L78">src/utils/inmemStorage.ts:78</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getRouteIdentifiers" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Route<wbr/>Identifiers</span><a href="#getRouteIdentifiers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getRouteIdentifiers.getRouteIdentifiers-1"><span class="tsd-kind-call-signature">get<wbr/>Route<wbr/>Identifiers</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getRouteIdentifiers.getRouteIdentifiers-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#getRouteIdentifiers">getRouteIdentifiers</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#getRouteIdentifiers">getRouteIdentifiers</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L61">src/utils/inmemStorage.ts:61</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L60">src/utils/inmemStorage.ts:60</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getT" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>getT</span><a href="#getT" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -289,7 +263,7 @@
 <h5><span class="tsd-kind-parameter">key</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L67">src/utils/inmemStorage.ts:67</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L66">src/utils/inmemStorage.ts:66</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="init" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>init</span><a href="#init" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -299,21 +273,21 @@
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#init">init</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#init">init</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L25">src/utils/inmemStorage.ts:25</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="inmemory" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>inmemory</span><a href="#inmemory" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L24">src/utils/inmemStorage.ts:24</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="kind" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>kind</span><a href="#kind" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="inmemory.inmemory-1"><span class="tsd-kind-call-signature">inmemory</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#inmemory.inmemory-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="kind.kind-1"><span class="tsd-kind-call-signature">kind</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/domain_interfaces.StorageKind.html" class="tsd-signature-type tsd-kind-enum">StorageKind</a><a href="#kind.kind-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>In-memory storage.</p>
+<div class="tsd-comment tsd-typography"><p>Storage kind.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="../enums/domain_interfaces.StorageKind.html" class="tsd-signature-type tsd-kind-enum">StorageKind</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#inmemory">inmemory</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#kind">kind</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L13">src/utils/inmemStorage.ts:13</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L20">src/utils/inmemStorage.ts:20</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="updateDirec" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>update<wbr/>Direc</span><a href="#updateDirec" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -325,9 +299,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">direc</span>: <a href="../types/domain_types.StoredDirec.html" class="tsd-signature-type tsd-kind-type-alias">StoredDirec</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#updateDirec">updateDirec</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#updateDirec">updateDirec</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L89">src/utils/inmemStorage.ts:89</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L88">src/utils/inmemStorage.ts:88</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="updatePlace" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>update<wbr/>Place</span><a href="#updatePlace" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -339,9 +313,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">place</span>: <a href="../types/domain_types.StoredPlace.html" class="tsd-signature-type tsd-kind-type-alias">StoredPlace</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#updatePlace">updatePlace</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#updatePlace">updatePlace</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L93">src/utils/inmemStorage.ts:93</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L92">src/utils/inmemStorage.ts:92</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="updateRoute" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>update<wbr/>Route</span><a href="#updateRoute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -353,9 +327,9 @@
 <li>
 <h5><span class="tsd-kind-parameter">route</span>: <a href="../types/domain_types.StoredRoute.html" class="tsd-signature-type tsd-kind-type-alias">StoredRoute</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
-<p>Implementation of <a href="../interfaces/domain_interfaces.IStorage.html">IStorage</a>.<a href="../interfaces/domain_interfaces.IStorage.html#updateRoute">updateRoute</a></p>
+<p>Implementation of <a href="../interfaces/domain_interfaces.Storage.html">Storage</a>.<a href="../interfaces/domain_interfaces.Storage.html#updateRoute">updateRoute</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/2bc2933/app/frontend/src/utils/inmemStorage.ts#L97">src/utils/inmemStorage.ts:97</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/zhukovdm/smartwalk/blob/c2e9ddc/app/frontend/src/utils/inmemStorage.ts#L96">src/utils/inmemStorage.ts:96</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -378,12 +352,10 @@
 <li><a href="#createDirec" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Direc</span></a></li>
 <li><a href="#createPlace" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Place</span></a></li>
 <li><a href="#createRoute" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Route</span></a></li>
-<li><a href="#decentralized" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>decentralized</span></a></li>
 <li><a href="#deleteDirec" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Direc</span></a></li>
 <li><a href="#deletePlace" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Place</span></a></li>
 <li><a href="#deleteRoute" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Route</span></a></li>
 <li><a href="#deleteT" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>deleteT</span></a></li>
-<li><a href="#device" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>device</span></a></li>
 <li><a href="#getDirec" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Direc</span></a></li>
 <li><a href="#getDirecIdentifiers" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Direc<wbr/>Identifiers</span></a></li>
 <li><a href="#getPlace" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Place</span></a></li>
@@ -392,7 +364,7 @@
 <li><a href="#getRouteIdentifiers" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Route<wbr/>Identifiers</span></a></li>
 <li><a href="#getT" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getT</span></a></li>
 <li><a href="#init" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>init</span></a></li>
-<li><a href="#inmemory" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>inmemory</span></a></li>
+<li><a href="#kind" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>kind</span></a></li>
 <li><a href="#updateDirec" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Direc</span></a></li>
 <li><a href="#updatePlace" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Place</span></a></li>
 <li><a href="#updateRoute" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>update<wbr/>Route</span></a></li></ul></div></details></div>

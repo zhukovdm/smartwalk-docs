@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transitiveclosure_499',['TransitiveClosure',['../classTransitiveClosure.html',1,'']]]
+  ['vertex_486',['Vertex',['../classCycleDetector_1_1Vertex.html',1,'CycleDetector']]]
 ];

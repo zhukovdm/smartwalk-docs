@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['children_715',['Children',['../classPruningRadixTrie_1_1Node.html#a460954b2da310010ddf727a464211566',1,'PruningRadixTrie::Node']]],
-  ['color_716',['Color',['../classCycleDetector_1_1Vertex.html#a8124ce0c38fbf4074b06ccf22d3a592e',1,'CycleDetector::Vertex']]]
+  ['advicer_673',['advicer',['../classAdviseKeywordsHandler.html#a6b2ea9b8d4c2e3fed6800c48c7355965',1,'AdviseKeywordsHandler']]],
+  ['arrows_674',['arrows',['../classSolverFactory.html#a127b873c56dd7417c94e77c7772a3394',1,'SolverFactory']]]
 ];

@@ -81,10 +81,10 @@ Inheritance diagram for IEntityIndex:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2eebdeaec1ce2eafb6fc6a27f76404b"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classPlace.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceIEntityIndex.html#ad2eebdeaec1ce2eafb6fc6a27f76404b">GetAround</a> (<a class="el" href="classWgsPoint.html">WgsPoint</a> center, double radius, IReadOnlyList&lt; <a class="el" href="classCategory.html">Category</a> &gt; categories)</td></tr>
-<tr class="memdesc:ad2eebdeaec1ce2eafb6fc6a27f76404b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places around a point satisfying specific categories.  <a href="interfaceIEntityIndex.html#ad2eebdeaec1ce2eafb6fc6a27f76404b">More...</a><br /></td></tr>
+<tr class="memdesc:ad2eebdeaec1ce2eafb6fc6a27f76404b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places around a point satisfying specific categories ordered by the crow-fly distances from the center point.  <a href="interfaceIEntityIndex.html#ad2eebdeaec1ce2eafb6fc6a27f76404b">More...</a><br /></td></tr>
 <tr class="separator:ad2eebdeaec1ce2eafb6fc6a27f76404b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af11fd40928ffc40a30df23c19cddebc8"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classPlace.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceIEntityIndex.html#af11fd40928ffc40a30df23c19cddebc8">GetWithin</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; polygon, IReadOnlyList&lt; <a class="el" href="classCategory.html">Category</a> &gt; categories)</td></tr>
-<tr class="memdesc:af11fd40928ffc40a30df23c19cddebc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places satisfying specific categories within a polygon.  <a href="interfaceIEntityIndex.html#af11fd40928ffc40a30df23c19cddebc8">More...</a><br /></td></tr>
+<tr class="memdesc:af11fd40928ffc40a30df23c19cddebc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places satisfying specific categories within a polygon. The resulting collection is NOT ordered by the distance.  <a href="interfaceIEntityIndex.html#af11fd40928ffc40a30df23c19cddebc8">More...</a><br /></td></tr>
 <tr class="separator:af11fd40928ffc40a30df23c19cddebc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -120,7 +120,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find places around a point satisfying specific categories. </p>
+<p>Find places around a point satisfying specific categories ordered by the crow-fly distances from the center point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">center</td><td>Geodetic point on the Earth.</td></tr>
@@ -161,7 +161,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find places satisfying specific categories within a polygon. </p>
+<p>Find places satisfying specific categories within a polygon. The resulting collection is NOT ordered by the distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">polygon</td><td>Closed polygon (an approximation of a bounding ellipse).</td></tr>

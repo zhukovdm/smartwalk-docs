@@ -1,5 +1,0 @@
-<map id="IDistanceMatrix" name="IDistanceMatrix">
-<area shape="rect" id="node1" title="Distance matrix abstraction." alt="" coords="131,5,256,32"/>
-<area shape="rect" id="node2" href="$classHaversineDistanceMatrix.html" title="Scaled wrapper over the Haversine formula." alt="" coords="5,80,192,107"/>
-<area shape="rect" id="node3" href="$classListDistanceMatrix.html" title="Wrapper over list&#45;based distance matrix calculated by a routing engine." alt="" coords="216,80,360,107"/>
-</map>

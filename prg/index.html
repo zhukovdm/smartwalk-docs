@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Programmer's guide - SmartWalk Docs</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Programmer's guide";
+    var mkdocs_page_input_path = "prg.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SmartWalk Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usr/">User's documentation</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Programmer's guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frontend">Frontend</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backend">Backend</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-pipelines">Data pipelines</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../adm/">Administrator's guide</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SmartWalk Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Programmer's guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/zhukovdm/smartwalk-docs/edit/master/docs/prg.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="programmers-guide">Programmer's guide</h1>
+<p>This guide introduces the main parts of the application and provides sufficient implementation details to ensure a gentle learning curve for novice contributors.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To acquire the tools necessary for setting up the environment, preparing the dataset, and writing and testing source code, follow the steps outlined in <a href="../adm/#prerequisites"><strong>Prerequisites</strong></a>.</p>
+<h2 id="environment">Environment</h2>
+<p>Learn more about the development environment at <a href="../adm/#running-the-app"><strong>Running the app</strong></a>. This section explains how to configure, start, and terminate individual parts of the system.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<p>The repository has the structure depicted below. Please note that the list is <em>not</em> exhaustive.</p>
+<pre><code class="language-txt">./
+├── Makefile . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . System maintenance
+├── app/
+│   ├── backend/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . Web API application
+│   │   ├── Dockerfile . . . . . . . . . . . . . . . . . . . . . . *backend* image definition
+│   │   ├── README.md
+│   │   ├── SmartWalk.Api/
+│   │   ├── SmartWalk.Application/
+│   │   ├── SmartWalk.Core/
+│   │   ├── SmartWalk.Infrastructure/
+│   │   ├── SmartWalk.&lt;Project&gt;.Test/ . . . . . . . . . . . . . . . . . . . . Automated tests
+│   │   └── WolfGarbe.PruningRadixTrie/ . . . . . . . . . . . . . . . . . External dependency
+│   └── frontend/ . . . . . . . . . . . . . . . . . . . . . . . . . . Single-page application
+│       ├── Dockerfile . . . . . . . . . . . . . . . . . . . . . . . *proxy* image definition
+│       ├── README.md
+│       ├── config/
+│       │   └── nginx/  . . . . . . . . . . . . . . . . . . . . . . . . . Nginx configuration
+│       ├── public/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Static files
+│       └── src/
+│           ├── components/  . . . . . . . . . . . . . . . . . . . . . . . . React components
+│           │   ├── __tests__/ . . . . . . . . . . . . . . . . . . . . . A nested test folder
+│           │   │   └── PanelDrawer.test.tsx
+│           │   └── PanelDrawer.tsx
+│           ├── domain/  . . . . . . . . . . . . . . . . . . . . . . . . Types and interfaces
+│           ├── features/  . . . . . . . . . . . . . . . . . . . . . . . . . Hooks and slices
+│           └── utils/
+├── data/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Data pipelines
+│   ├── advice/
+│   ├── dbpedia/
+│   ├── dump/
+│   ├── osm/
+│   ├── restore/
+│   ├── taginfo/
+│   ├── wikidata-create/
+│   └── wikidata-enrich/
+├── infra/  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Environment files
+│   └── Dockerfile.routing . . . . . . . . . . . . . . . . . . . . *routing* image definition
+└── misc/ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Miscellanea
+</code></pre>
+<h2 id="architecture">Architecture</h2>
+<p>The architecture of the application is demonstrated using elements of the <a href="https://c4model.com/">C4 model</a>. <em>SmartWalk</em> is composed of <em>four</em> interconnected containers: the <code>Frontend</code>, <code>Backend</code>, <code>Database</code>, and <code>Routing</code>. The first two are containerized applications from the <code>./app/</code> folder. The last ones are containers based on <a href="https://hub.docker.com/r/osrm/osrm-backend">osrm-backend</a> and <a href="https://hub.docker.com/_/mongo">mongo</a> Docker images that supply business logic with actual data.</p>
+<p><img alt="container diagram" src="../img/c4-container-diagram.svg" /></p>
+<h2 id="frontend">Frontend</h2>
+<p>The frontend is a React-based single-page application, serving as an entry point and offering a rich user experience. Its source code is located in the <code>./app/frontend/</code> folder.</p>
+<p>The code documentation generated by <a href="https://typedoc.org/">TypeDoc</a> is available at <a href="https://zhukovdm.github.io/smartwalk-docs/dev-frontend/"><strong>dev-frontend</strong></a>.</p>
+<p>The following abstractions carry out the intended functionality.</p>
+<p><img alt="component diagram frontend" src="../img/c4-component-diagram-frontend.svg" /></p>
+<p><code>Map</code> is responsible for loading tiles and drawing markers and vector geometries on a map. The <code>LeafletMap</code> is a concrete implementation capable of interacting with the <code>OSM</code> map.</p>
+<p><code>Storage</code> is an abstraction that unifies methods for accessing both device storage and decentralized Solid pod. Data are stored on a device in IndexedDB, a standardized in-browser database, with the help of the <code>DeviceStorage</code> and pushed to a pod by the <code>SolidStorage</code>.</p>
+<p><em>Please note that IndexedDB and a Solid pod are mutually exclusive storages.</em></p>
+<p><code>SmartWalkAPI</code> is a set of functions defined in the <code>smartwalk.ts</code> file for retrieving data from the backend via HTTP protocol.</p>
+<p>Finally, the <code>PanelDrawer</code> and <code>SessionProvider</code> are React components with visual part. The former implements the panel-based user interface and client-side routing, while the latter ensures the Solid login dialog and handles the proper switch over to the <code>Solid Session</code> panel.</p>
+<p>To keep panel state and resolve storage read operations <em>locally</em>, we use the Redux Toolkit state container composed of <em>slices</em>. A distinct slice is implemented for each panel, see files ending with <code>Slice.ts</code> in the <code>./src/features/</code> folder.</p>
+<p>Redux Toolkit is not recommended for keeping non-serializable data, such as class instances. For this reason, <code>Map</code>, <code>Storage</code>, and cached backend responses are stored in the standard Context API.</p>
+<p>Standard React hooks were found to be insufficient to cover the needs of the application. For custom hooks, see source files whose names end with <code>Hooks.ts</code> in the <code>./src/features/</code> folder.</p>
+<h2 id="backend">Backend</h2>
+<p>All searching and planning functionality resides within the backend, a Web API application based on the ASP.NET Core framework. Its source code is located in the <code>./app/backend/</code> folder and consists of the following four projects:</p>
+<ul>
+<li><code>SmartWalk.Core</code> defines entities, algorithms, solvers, and core-level abstract interfaces used across the application.</li>
+<li><code>SmartWalk.Application</code> prescribes the shape of valid query objects, provides domain-level input parsers and validators, along with separate handlers for each type of supported queries.</li>
+<li><code>SmartWalk.Infrastructure</code> implements gateways to the infrastructural containers.</li>
+<li><code>SmartWalk.Api</code> serves as the presentation layer with HTTP endpoints, middlewares, and controllers.</li>
+</ul>
+<p>The code documentation generated by <a href="https://www.doxygen.nl/">Doxygen</a> is available at <a href="https://zhukovdm.github.io/smartwalk-docs/dev-backend/"><strong>dev-backend</strong></a>.</p>
+<p>The application comprises <em>five</em> request pipelines with the following generic structure.</p>
+<p><img alt="component diagram backend" src="../img/c4-component-diagram-backend.svg" /></p>
+<p><code>TController</code> receives a request object and performs validation to reject malformed input early.</p>
+<p>Well-formed data is then handed over to the corresponding domain-level <code>THandler</code>, a realization of a targeted use case.</p>
+<p><code>TResponder</code> is responsible for completing the response object based on three possible outcomes: a valid result of a calculation, an internal server error, or failed validation.</p>
+<p>Finally, <code>Gateways</code> are entities of the data access layer that implement abstract interfaces. The application utilizes the following <em>four</em> gateways:</p>
+<ul>
+<li>The <code>TrieKeywordAdvicer</code> is a simple wrapper over PruningRadixTrie for finding the <em>k</em> most relevant keywords.</li>
+<li>The <code>MongoEntityStore</code> and <code>MongoEntityIndex</code> are gateways to the database for fetching places by <code>smartId</code> and searching those places satisfying user-defined attribute filters.</li>
+<li>The <code>OsrmRoutingEngine</code> is a HTTP-based component for calling <code>OSRM</code> routing API.</li>
+</ul>
+<p>We define <em>five</em> HTTP-based endpoints with the supported <code>application/json</code> media type to facilitate the needs of the frontend.</p>
+<p><strong>GET /api/advice/keywords</strong> <br>
+&emsp;&emsp;&emsp; suggest the <code>count</code> most relevant keywords starting with <code>prefix</code>.</p>
+<p><strong>GET /api/search/routes, /places, /direcs</strong> <br>
+&emsp;&emsp;&emsp; handle search queries, with the only <code>query</code> parameter.</p>
+<p><strong>GET /api/entity/places/{smartId}</strong> <br>
+&emsp;&emsp;&emsp; fetch the full representation of a place by <code>smartId</code>.</p>
+<p>The API is documented using the Swashbuckle library, a toolset compatible with the OpenAPI specification. Swagger documentation is available at <a href="http://localhost:5017/swagger/v1/swagger.yaml">swagger.yaml</a> whenever <code>Backend</code> container is up and running in development mode or at <a href="https://app.swaggerhub.com/apis/zhukovdm/smartwalk/">SwaggerHub</a>.</p>
+<p><strong>ADVICE:</strong> Unfortunately, not all endpoints provide examples. To support caching, <em>search queries</em> are passed around as serialized and percent-encoded JSON objects. Their internal structure is given in <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/routes.json">routes.json</a>, <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/places.json">places.json</a>, and <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/direcs.json">direcs.json</a>. Alternatively, you could refer to type definitions.</p>
+<h2 id="data-pipelines">Data pipelines</h2>
+<p>Besides the application source code, there are small task-oriented programs in the <code>./data/</code> folder to carry out the <a href="../adm/#data-preparation"><strong>Data preparation</strong></a> phase.</p>
+<ul>
+<li>
+<p><code>taginfo/</code> loads key statistics from Taginfo into key-specific .json files.</p>
+</li>
+<li>
+<p><code>osm/</code> combines information stored in Taginfo files, OSM binary files, and fetched from Overpass API to create new places or update existing ones.</p>
+</li>
+<li>
+<p><code>wikidata-create/</code> creates simple stubs for places that do not exist yet.</p>
+</li>
+<li>
+<p><code>wikidata-enrich/</code> updates the current dataset with the latest information from the Wikidata knowledge graph.</p>
+</li>
+<li>
+<p><code>dbpedia/</code> does the same action as <code>wikidata-enrich/</code> but for DBPedia.</p>
+</li>
+<li>
+<p><code>advice/</code> collects statistics about keywords and attributes across the dataset and recreates advice items.</p>
+</li>
+<li>
+<p><code>dump/</code> dumps places and keywords into <code>.txt</code> files.</p>
+</li>
+<li>
+<p><code>restore/</code> restores place and keyword collections from <code>.txt</code> dump files.</p>
+</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>Tests for the frontend functions and components are located in nested <code>__tests__/</code> folders. To run them, navigate to the <code>./app/frontend/</code> folder and enter:</p>
+<pre><code class="language-bash">$ npm run tests
+</code></pre>
+<p>Backend tests are located in dedicated projects whose names end with <code>.Test</code>. To run them, navigate to the <code>./app/backend/</code> folder and enter:</p>
+<pre><code class="language-bash">$ dotnet test
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../adm/" class="btn btn-neutral float-right" title="Administrator's guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../usr/" class="btn btn-neutral" title="User's documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/zhukovdm/smartwalk-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../usr/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../adm/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/extra.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

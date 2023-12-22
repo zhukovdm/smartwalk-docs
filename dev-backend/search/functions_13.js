@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['validate_687',['Validate',['../classGetPlaceValidator.html#ab3b6a6289206b07c4e95541cbe3d7163',1,'GetPlaceValidator.Validate()'],['../classRequestValidatorBase.html#aef952cb11ae5179f4efc8bf6212934b4',1,'RequestValidatorBase.Validate()'],['../classSerializationValidator.html#a3856a6496444303bfac6e11c151950d3',1,'SerializationValidator.Validate()']]],
-  ['validateroutemaxdistance_688',['ValidateRouteMaxDistance',['../classSearchRoutesQueryParser.html#a2d456a1afda07e2888cde020a005f3a6',1,'SearchRoutesQueryParser']]],
-  ['vertex_689',['Vertex',['../classCycleDetector_1_1Vertex.html#a684789818118a05ac6e8506323879611',1,'CycleDetector::Vertex']]]
+  ['waypoint_668',['Waypoint',['../classWaypoint.html#ab23485d0768e66bb181ef1251b420a34',1,'Waypoint']]],
+  ['wgspoint_669',['WgsPoint',['../classWgsPoint.html#a5641b47b6f58110f0ab227595d1c53aa',1,'WgsPoint']]],
+  ['withmergedcategories_670',['WithMergedCategories',['../classListExtensions.html#a63a1382d8ae54efdc3d68c756fef2f7b',1,'ListExtensions']]],
+  ['writetermstofile_671',['WriteTermsToFile',['../classPruningRadixTrie_1_1PruningRadixTrie.html#a541ec5c4dafb3fb0c14bf76785e3040a',1,'PruningRadixTrie::PruningRadixTrie']]]
 ];

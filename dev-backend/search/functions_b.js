@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_657',['Node',['../classPruningRadixTrie_1_1Node.html#a251c39a289e201161306d69845b0ebd5',1,'PruningRadixTrie::Node']]]
+  ['osrmroutingengine_638',['OsrmRoutingEngine',['../classOsrmRoutingEngine.html#a3afcc52598a61e8483c2889023598b6c',1,'OsrmRoutingEngine']]]
 ];

@@ -70,12 +70,15 @@ $(function() {
 <div class="title">QueryParserBase&lt; V, D &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Standard parser for search <code>query</code> strings.  
+ <a href="classQueryParserBase.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for QueryParserBase&lt; V, D &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classQueryParserBase__inherit__graph.png" border="0" usemap="#aQueryParserBase_3_01V_00_01D_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="aQueryParserBase_3_01V_00_01D_01_4_inherit__map" id="aQueryParserBase_3_01V_00_01D_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,196,107"/>
+<area shape="rect" title="Standard parser for search query strings." alt="" coords="5,80,196,107"/>
 <area shape="rect" href="interfaceIQueryParser.html" title="Query parser and validator." alt="" coords="19,5,182,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -84,7 +87,7 @@ Collaboration diagram for QueryParserBase&lt; V, D &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classQueryParserBase__coll__graph.png" border="0" usemap="#aQueryParserBase_3_01V_00_01D_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="aQueryParserBase_3_01V_00_01D_01_4_coll__map" id="aQueryParserBase_3_01V_00_01D_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="77,95,267,121"/>
+<area shape="rect" title="Standard parser for search query strings." alt="" coords="77,95,267,121"/>
 <area shape="rect" href="interfaceIQueryParser.html" title="Query parser and validator." alt="" coords="5,5,168,32"/>
 <area shape="rect" href="interfaceIValidationResult.html" title=" " alt="" coords="193,5,325,32"/>
 </map>
@@ -92,7 +95,7 @@ Collaboration diagram for QueryParserBase&lt; V, D &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2b01d7953afb1f472c637cfbdfd3580"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#ac2b01d7953afb1f472c637cfbdfd3580">QueryParserBase</a> (<a class="el" href="interfaceIValidationResult.html">IValidationResult</a> result)</td></tr>
+<tr class="memitem:ac2b01d7953afb1f472c637cfbdfd3580"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#ac2b01d7953afb1f472c637cfbdfd3580">QueryParserBase</a> (<a class="el" href="interfaceIValidationResult.html">IValidationResult</a> <a class="el" href="classQueryParserBase.html#a1291bcf885ea45179ecabac664a8267f">result</a>)</td></tr>
 <tr class="separator:ac2b01d7953afb1f472c637cfbdfd3580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e3826d4432f1277da9c17d65df5426"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#a16e3826d4432f1277da9c17d65df5426">TryParse</a> (string query, out D queryObject)</td></tr>
 <tr class="memdesc:a16e3826d4432f1277da9c17d65df5426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse procedure with domain-specific logic.  <a href="classQueryParserBase.html#a16e3826d4432f1277da9c17d65df5426">More...</a><br /></td></tr>
@@ -106,10 +109,19 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac27303451c36b9dbec7699a2f7ac00eb"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="interfaceIValidationResult.html">IValidationResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#ac27303451c36b9dbec7699a2f7ac00eb">_result</a></td></tr>
-<tr class="separator:ac27303451c36b9dbec7699a2f7ac00eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1291bcf885ea45179ecabac664a8267f"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="interfaceIValidationResult.html">IValidationResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#a1291bcf885ea45179ecabac664a8267f">result</a></td></tr>
+<tr class="separator:a1291bcf885ea45179ecabac664a8267f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Standard parser for search <code>query</code> strings. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">V</td><td>Validation type.</td></tr>
+    <tr><td class="paramname">D</td><td>Deserialization type.</td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac2b01d7953afb1f472c637cfbdfd3580"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2b01d7953afb1f472c637cfbdfd3580">&#9670;&nbsp;</a></span>QueryParserBase()</h2>
 
@@ -221,8 +233,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac27303451c36b9dbec7699a2f7ac00eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac27303451c36b9dbec7699a2f7ac00eb">&#9670;&nbsp;</a></span>_result</h2>
+<a id="a1291bcf885ea45179ecabac664a8267f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1291bcf885ea45179ecabac664a8267f">&#9670;&nbsp;</a></span>result</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +243,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">readonly <a class="el" href="interfaceIValidationResult.html">IValidationResult</a> <a class="el" href="classQueryParserBase.html">QueryParserBase</a>&lt; V, D &gt;._result</td>
+          <td class="memname">readonly <a class="el" href="interfaceIValidationResult.html">IValidationResult</a> <a class="el" href="classQueryParserBase.html">QueryParserBase</a>&lt; V, D &gt;.result</td>
         </tr>
       </table>
   </td>

@@ -92,12 +92,12 @@ Collaboration diagram for OsrmRoutingEngine:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af86d1c0b5882f32dadd40e148f7bffe7"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#af86d1c0b5882f32dadd40e148f7bffe7">GetDistanceFunction</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
+<tr class="memdesc:af86d1c0b5882f32dadd40e148f7bffe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation).  <a href="classOsrmRoutingEngine.html#af86d1c0b5882f32dadd40e148f7bffe7">More...</a><br /></td></tr>
+<tr class="separator:af86d1c0b5882f32dadd40e148f7bffe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514d95a15a8e8939ccda64f31cc1af0a"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classShortestPath.html">ShortestPath</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#a514d95a15a8e8939ccda64f31cc1af0a">GetShortestPaths</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
 <tr class="memdesc:a514d95a15a8e8939ccda64f31cc1af0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate polyline, distance, and duration of the fastest routes visiting waypoints in a given order.  <a href="classOsrmRoutingEngine.html#a514d95a15a8e8939ccda64f31cc1af0a">More...</a><br /></td></tr>
 <tr class="separator:a514d95a15a8e8939ccda64f31cc1af0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d263ed6698c8896605617396f08f6f2"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="interfaceIDistanceMatrix.html">IDistanceMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#a3d263ed6698c8896605617396f08f6f2">GetDistanceMatrix</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
-<tr class="memdesc:a3d263ed6698c8896605617396f08f6f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation).  <a href="classOsrmRoutingEngine.html#a3d263ed6698c8896605617396f08f6f2">More...</a><br /></td></tr>
-<tr class="separator:a3d263ed6698c8896605617396f08f6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -106,13 +106,13 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a3afcc52598a61e8483c2889023598b6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#a3afcc52598a61e8483c2889023598b6c">OsrmRoutingEngine</a> (string baseUrl)</td></tr>
+<tr class="memitem:a3afcc52598a61e8483c2889023598b6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#a3afcc52598a61e8483c2889023598b6c">OsrmRoutingEngine</a> (string <a class="el" href="classOsrmRoutingEngine.html#ad166506b0d278a8990d53ec63d48736e">baseUrl</a>)</td></tr>
 <tr class="separator:a3afcc52598a61e8483c2889023598b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a29c652f5f831269d277783c13627d695"><td class="memItemLeft" align="right" valign="top">readonly string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#a29c652f5f831269d277783c13627d695">_baseUrl</a></td></tr>
-<tr class="separator:a29c652f5f831269d277783c13627d695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad166506b0d278a8990d53ec63d48736e"><td class="memItemLeft" align="right" valign="top">readonly string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOsrmRoutingEngine.html#ad166506b0d278a8990d53ec63d48736e">baseUrl</a></td></tr>
+<tr class="separator:ad166506b0d278a8990d53ec63d48736e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3afcc52598a61e8483c2889023598b6c"></a>
@@ -142,25 +142,33 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3d263ed6698c8896605617396f08f6f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d263ed6698c8896605617396f08f6f2">&#9670;&nbsp;</a></span>GetDistanceMatrix()</h2>
+<a id="af86d1c0b5882f32dadd40e148f7bffe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af86d1c0b5882f32dadd40e148f7bffe7">&#9670;&nbsp;</a></span>GetDistanceFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt;<a class="el" href="interfaceIDistanceMatrix.html">IDistanceMatrix</a>&gt; OsrmRoutingEngine.GetDistanceMatrix </td>
+          <td class="memname">Task&lt;<a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a>&gt; OsrmRoutingEngine.GetDistanceFunction </td>
           <td>(</td>
           <td class="paramtype">IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt;&#160;</td>
           <td class="paramname"><em>waypoints</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation). </p>
 
-<p>Implements <a class="el" href="interfaceIRoutingEngine.html#aa14c4826e7472b8e91e5da60a0298d15">IRoutingEngine</a>.</p>
+<p>Implements <a class="el" href="interfaceIRoutingEngine.html#a10548cf0bf7ec171fa71eeeea852cf60">IRoutingEngine</a>.</p>
 
 </div>
 </div>
@@ -194,6 +202,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Task&lt;List&lt;<a class="el" href="classShortestPath.html">ShortestPath</a>&gt; &gt; OsrmRoutingEngine.GetShortestPaths </td>
@@ -203,6 +214,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Calculate polyline, distance, and duration of the fastest routes visiting waypoints in a given order. </p>
@@ -213,8 +229,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a29c652f5f831269d277783c13627d695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29c652f5f831269d277783c13627d695">&#9670;&nbsp;</a></span>_baseUrl</h2>
+<a id="ad166506b0d278a8990d53ec63d48736e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad166506b0d278a8990d53ec63d48736e">&#9670;&nbsp;</a></span>baseUrl</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +239,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">readonly string OsrmRoutingEngine._baseUrl</td>
+          <td class="memname">readonly string OsrmRoutingEngine.baseUrl</td>
         </tr>
       </table>
   </td>

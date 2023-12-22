@@ -1,6 +1,6 @@
 <map id="ISolver" name="ISolver">
-<area shape="rect" id="node1" title=" " alt="" coords="65,5,131,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="21,80,175,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="7,155,79,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="111,155,192,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="174,5,241,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="115,80,300,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,196,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="221,155,407,181"/>
 </map>

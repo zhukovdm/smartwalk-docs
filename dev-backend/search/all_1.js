@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['_5fadvicer_2',['_advicer',['../classAdviseKeywordsHandler.html#aa0b47f3c99346b1ff7b14a64e2f577c9',1,'AdviseKeywordsHandler']]],
-  ['_5fbaseurl_3',['_baseUrl',['../classOsrmRoutingEngine.html#a29c652f5f831269d277783c13627d695',1,'OsrmRoutingEngine']]],
-  ['_5fcollection_4',['_collection',['../classMongoEntityIndex.html#ac7c88ea1ff4ae063b1eb52440c7e16bd',1,'MongoEntityIndex._collection()'],['../classMongoEntityStore.html#a28ad32cd386f688fd197efbcc00f336f',1,'MongoEntityStore._collection()']]],
-  ['_5fctx_5',['_ctx',['../classAdviceController.html#aca68ea800893c39f13b44c970c1b3bfc',1,'AdviceController._ctx()'],['../classEntityController.html#aeaecf98519467251195e307e242d090f',1,'EntityController._ctx()'],['../classSearchController.html#a0611eb7d595f107e26c8621c6403ef58',1,'SearchController._ctx()']]],
-  ['_5fcycleref_6',['_cycleRef',['../classCycleDetector.html#aa8b3e7cb8a1e8d4e72fb010d800322a8',1,'CycleDetector']]],
-  ['_5fdeg2rad_7',['_deg2rad',['../classSpherical.html#aa663c903ef4aae573c397b0db85717a3',1,'Spherical']]],
-  ['_5fearthradius_8',['_earthRadius',['../classSpherical.html#aea26a841c088f4e7c1d138c178bea288',1,'Spherical']]],
-  ['_5fentityindex_9',['_entityIndex',['../classSearchPlacesHandler.html#a26a933f0b2a2bb441c6a2c19a5257df2',1,'SearchPlacesHandler._entityIndex()'],['../classSearchRoutesHandler.html#a86df5108d129c9dd72c03d1d5311fd51',1,'SearchRoutesHandler._entityIndex()']]],
-  ['_5fes_10',['_Es',['../classCycleDetector.html#a27efc9fe48ee5bb5ef4d35b61a15c53b',1,'CycleDetector']]],
-  ['_5finstance_11',['_instance',['../classOsrmShortestPathQueryExecutor_1_1PathComparer.html#a7a95e98c92285cac9c100ab90bd172c3',1,'OsrmShortestPathQueryExecutor.PathComparer._instance()'],['../classSearchRoutesQueryParser_1_1ArrowComparer.html#acaaf00e041bd62701fe4a39b172dbd42',1,'SearchRoutesQueryParser.ArrowComparer._instance()'],['../classSearchRoutesHandler_1_1SolverPlaceComparer.html#a85b26f88a0168faa0e2dc9a97117c246',1,'SearchRoutesHandler.SolverPlaceComparer._instance()'],['../classSearchRoutesHandler_1_1RouteComparer.html#ad242d033ca244a2490e25fd2eca039c5',1,'SearchRoutesHandler.RouteComparer._instance()']]],
-  ['_5flogger_12',['_logger',['../classAdviceController.html#a7ad2456356b61c60c58fd1000258627a',1,'AdviceController._logger()'],['../classEntityController.html#afd08e2a7f62c07c9f79b2807ba247bd2',1,'EntityController._logger()'],['../classSearchController.html#a7801cfcfe1a8e03a8b663878dabaf29c',1,'SearchController._logger()']]],
-  ['_5fmatrix_13',['_matrix',['../classListDistanceMatrix.html#ad1e8d3645208f84c4e4ba4575463a4cc',1,'ListDistanceMatrix._matrix()'],['../classListPrecedenceMatrix.html#a5f78afa77566f5c479ce32d6b4b6e354',1,'ListPrecedenceMatrix._matrix()']]],
-  ['_5fplaces_14',['_places',['../classHaversineDistanceMatrix.html#abf45e6c6e758aa5809cfd67b79d7c004',1,'HaversineDistanceMatrix']]],
-  ['_5fpolicy_15',['_policy',['../classProgram.html#a767594097a360762081b7b2623e96cce',1,'Program']]],
-  ['_5frad2deg_16',['_rad2deg',['../classSpherical.html#a89b6e3da7718cb95547cc8bdb240f43d',1,'Spherical']]],
-  ['_5fresult_17',['_result',['../classQueryParserBase.html#ac27303451c36b9dbec7699a2f7ac00eb',1,'QueryParserBase._result()'],['../classRequestValidatorBase.html#a4e0091d7b7da960c676bedaa496198c9',1,'RequestValidatorBase._result()']]],
-  ['_5froutingengine_18',['_routingEngine',['../classSearchDirecsHandler.html#a3ffc1b9d0e85a237bd789f86b3d1e3ce',1,'SearchDirecsHandler._routingEngine()'],['../classSearchRoutesHandler.html#afe7929e4857f45d2d3b491e15a4f070a',1,'SearchRoutesHandler._routingEngine()']]],
-  ['_5fscalefactor_19',['_scaleFactor',['../classHaversineDistanceMatrix.html#a543b42ef7f56b3973301838ceebe9df2',1,'HaversineDistanceMatrix']]],
-  ['_5fschema_20',['_schema',['../classSerializationValidator.html#a4e675473d88d058817ad69aaae9a7eee',1,'SerializationValidator']]],
-  ['_5fstore_21',['_store',['../classGetPlaceHandler.html#ac2544b0e50b97eca7bbd8d8f26f24d28',1,'GetPlaceHandler']]],
-  ['_5fvs_22',['_Vs',['../classCycleDetector.html#af82bd36d8725e2ff0d5abf4810e1feee',1,'CycleDetector']]]
+  ['_5fresult_2',['_result',['../classRequestValidatorBase.html#a4e0091d7b7da960c676bedaa496198c9',1,'RequestValidatorBase']]]
 ];

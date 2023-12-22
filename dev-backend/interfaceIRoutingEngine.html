@@ -80,22 +80,22 @@ Inheritance diagram for IRoutingEngine:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a10548cf0bf7ec171fa71eeeea852cf60"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceIRoutingEngine.html#a10548cf0bf7ec171fa71eeeea852cf60">GetDistanceFunction</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
+<tr class="memdesc:a10548cf0bf7ec171fa71eeeea852cf60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation).  <a href="interfaceIRoutingEngine.html#a10548cf0bf7ec171fa71eeeea852cf60">More...</a><br /></td></tr>
+<tr class="separator:a10548cf0bf7ec171fa71eeeea852cf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4526100cc18da3d9e9b0635f4bc10490"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classShortestPath.html">ShortestPath</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceIRoutingEngine.html#a4526100cc18da3d9e9b0635f4bc10490">GetShortestPaths</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
 <tr class="memdesc:a4526100cc18da3d9e9b0635f4bc10490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate polyline, distance, and duration of the fastest routes visiting waypoints in a given order.  <a href="interfaceIRoutingEngine.html#a4526100cc18da3d9e9b0635f4bc10490">More...</a><br /></td></tr>
 <tr class="separator:a4526100cc18da3d9e9b0635f4bc10490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa14c4826e7472b8e91e5da60a0298d15"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="interfaceIDistanceMatrix.html">IDistanceMatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceIRoutingEngine.html#aa14c4826e7472b8e91e5da60a0298d15">GetDistanceMatrix</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; waypoints)</td></tr>
-<tr class="memdesc:aa14c4826e7472b8e91e5da60a0298d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation).  <a href="interfaceIRoutingEngine.html#aa14c4826e7472b8e91e5da60a0298d15">More...</a><br /></td></tr>
-<tr class="separator:aa14c4826e7472b8e91e5da60a0298d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa14c4826e7472b8e91e5da60a0298d15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa14c4826e7472b8e91e5da60a0298d15">&#9670;&nbsp;</a></span>GetDistanceMatrix()</h2>
+<a id="a10548cf0bf7ec171fa71eeeea852cf60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10548cf0bf7ec171fa71eeeea852cf60">&#9670;&nbsp;</a></span>GetDistanceFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt;<a class="el" href="interfaceIDistanceMatrix.html">IDistanceMatrix</a>&gt; IRoutingEngine.GetDistanceMatrix </td>
+          <td class="memname">Task&lt;<a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a>&gt; IRoutingEngine.GetDistanceFunction </td>
           <td>(</td>
           <td class="paramtype">IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt;&#160;</td>
           <td class="paramname"><em>waypoints</em></td><td>)</td>
@@ -106,7 +106,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Calculate distance in meters between all pairs of waypoints (expected to be an expensive operation). </p>
 
-<p>Implemented in <a class="el" href="classOsrmRoutingEngine.html#a3d263ed6698c8896605617396f08f6f2">OsrmRoutingEngine</a>.</p>
+<p>Implemented in <a class="el" href="classOsrmRoutingEngine.html#af86d1c0b5882f32dadd40e148f7bffe7">OsrmRoutingEngine</a>.</p>
 
 </div>
 </div>

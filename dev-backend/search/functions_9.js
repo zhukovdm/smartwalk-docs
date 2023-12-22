@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['latradcost_647',['LatRadCost',['../classSpherical.html#a0feec4c149ccd0f2e21f046d69fb8b71',1,'Spherical']]],
-  ['latradleng_648',['LatRadLeng',['../classSpherical.html#acdd1bd348ea404a12d98f35d6a012c15',1,'Spherical']]],
-  ['listdistancematrix_649',['ListDistanceMatrix',['../classListDistanceMatrix.html#ad3c698bf28df13b841c22be0601c9ac9',1,'ListDistanceMatrix']]],
-  ['listprecedencematrix_650',['ListPrecedenceMatrix',['../classListPrecedenceMatrix.html#a016de56aa20c262dd12a3ca6dde41944',1,'ListPrecedenceMatrix']]],
-  ['lonradcost_651',['LonRadCost',['../classSpherical.html#ac82519615d31f855f77ade765b3a0222',1,'Spherical']]],
-  ['lonradleng_652',['LonRadLeng',['../classSpherical.html#a068613f003adcfbfb1c88570dc3ab080',1,'Spherical']]]
+  ['main_632',['Main',['../classProgram.html#ada72f8d1518f89bc2e6ad807d5059564',1,'Program.Main()'],['../classPruningRadixTrie_1_1Benchmark_1_1Program.html#a949e5816d10b82e867c2501f87424b39',1,'PruningRadixTrie.Benchmark.Program.Main()']]],
+  ['matrixdistancefunction_633',['MatrixDistanceFunction',['../classMatrixDistanceFunction.html#a30f265a0b28443d27cddeab084fe0fb2',1,'MatrixDistanceFunction']]],
+  ['midpoint_634',['Midpoint',['../classSpherical.html#a7c825d2df20acf1520bb85c1bbacd88d',1,'Spherical']]],
+  ['mongoentityindex_635',['MongoEntityIndex',['../classMongoEntityIndex.html#a0dc949f27db71ed3ef1bd41d81df43e9',1,'MongoEntityIndex']]],
+  ['mongoentitystore_636',['MongoEntityStore',['../classMongoEntityStore.html#a3d7c52c5eb5b3184850ed6cb85cdb7e9',1,'MongoEntityStore']]]
 ];

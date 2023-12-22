@@ -62,24 +62,55 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classSolverFactory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SolverFactory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Collaboration diagram for SolverFactory:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSolverFactory__coll__graph.png" border="0" usemap="#aSolverFactory_coll__map" alt="Collaboration graph"/></div>
+<map name="aSolverFactory_coll__map" id="aSolverFactory_coll__map">
+<area shape="rect" title=" " alt="" coords="70,109,181,136"/>
+<area shape="rect" href="classSolverPlace.html" title=" " alt="" coords="5,5,104,32"/>
+<area shape="rect" href="interfaceIDistanceFunction.html" title="Distance function abstraction." alt="" coords="128,5,267,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa677a864293fa9766831ef5e9011450"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interfaceIPrecedenceMatrix.html">IPrecedenceMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#aaa677a864293fa9766831ef5e9011450">GetPrecedenceMatrix</a> (IEnumerable&lt; <a class="el" href="classPrecedenceEdge.html">PrecedenceEdge</a> &gt; edges, int catsCount, bool hasArrows)</td></tr>
-<tr class="memdesc:aaa677a864293fa9766831ef5e9011450"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>Solver-specific</b> precedence matrix.  <a href="classSolverFactory.html#aaa677a864293fa9766831ef5e9011450">More...</a><br /></td></tr>
-<tr class="separator:aaa677a864293fa9766831ef5e9011450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c1c841e813b1b036342007d04691197"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interfaceISolver.html">ISolver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#a6c1c841e813b1b036342007d04691197">GetSolver</a> ()</td></tr>
-<tr class="separator:a6c1c841e813b1b036342007d04691197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>ArrowSolver</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>FloatSolver</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>SolverBase</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:abc706e4f99d9949f699808c33d2c5b02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#abc706e4f99d9949f699808c33d2c5b02">SolverFactory</a> (<a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a> <a class="el" href="classSolverFactory.html#a21a68ae81456d91e39cdab247fbf7d50">distFn</a>, IReadOnlyList&lt; <a class="el" href="classArrow.html">Arrow</a> &gt; <a class="el" href="classSolverFactory.html#a127b873c56dd7417c94e77c7772a3394">arrows</a>, <a class="el" href="classSolverPlace.html">SolverPlace</a> <a class="el" href="classSolverFactory.html#a49debf14cb0c933f317e7fe43f490618">source</a>, <a class="el" href="classSolverPlace.html">SolverPlace</a> <a class="el" href="classSolverFactory.html#a21c3c3c683c7699587b1c4479a5ffc75">target</a>)</td></tr>
+<tr class="separator:abc706e4f99d9949f699808c33d2c5b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f628f7905bbf3c5c02af9aac2a0083"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interfaceISolver.html">ISolver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#ad8f628f7905bbf3c5c02af9aac2a0083">GetSolver</a> ()</td></tr>
+<tr class="separator:ad8f628f7905bbf3c5c02af9aac2a0083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a21a68ae81456d91e39cdab247fbf7d50"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#a21a68ae81456d91e39cdab247fbf7d50">distFn</a></td></tr>
+<tr class="separator:a21a68ae81456d91e39cdab247fbf7d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a127b873c56dd7417c94e77c7772a3394"><td class="memItemLeft" align="right" valign="top">readonly IReadOnlyList&lt; <a class="el" href="classArrow.html">Arrow</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#a127b873c56dd7417c94e77c7772a3394">arrows</a></td></tr>
+<tr class="separator:a127b873c56dd7417c94e77c7772a3394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49debf14cb0c933f317e7fe43f490618"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="classSolverPlace.html">SolverPlace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#a49debf14cb0c933f317e7fe43f490618">source</a></td></tr>
+<tr class="separator:a49debf14cb0c933f317e7fe43f490618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c3c3c683c7699587b1c4479a5ffc75"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="classSolverPlace.html">SolverPlace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolverFactory.html#a21c3c3c683c7699587b1c4479a5ffc75">target</a></td></tr>
+<tr class="separator:a21c3c3c683c7699587b1c4479a5ffc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aaa677a864293fa9766831ef5e9011450"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa677a864293fa9766831ef5e9011450">&#9670;&nbsp;</a></span>GetPrecedenceMatrix()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc706e4f99d9949f699808c33d2c5b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc706e4f99d9949f699808c33d2c5b02">&#9670;&nbsp;</a></span>SolverFactory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -88,22 +119,28 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="interfaceIPrecedenceMatrix.html">IPrecedenceMatrix</a> SolverFactory.GetPrecedenceMatrix </td>
+          <td class="memname">SolverFactory.SolverFactory </td>
           <td>(</td>
-          <td class="paramtype">IEnumerable&lt; <a class="el" href="classPrecedenceEdge.html">PrecedenceEdge</a> &gt;&#160;</td>
-          <td class="paramname"><em>edges</em>, </td>
+          <td class="paramtype"><a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a>&#160;</td>
+          <td class="paramname"><em>distFn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>catsCount</em>, </td>
+          <td class="paramtype">IReadOnlyList&lt; <a class="el" href="classArrow.html">Arrow</a> &gt;&#160;</td>
+          <td class="paramname"><em>arrows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>hasArrows</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="classSolverPlace.html">SolverPlace</a>&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSolverPlace.html">SolverPlace</a>&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -113,25 +150,27 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><b>Solver-specific</b> precedence matrix. </p>
+<p></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">edges</td><td></td></tr>
-    <tr><td class="paramname">catsCount</td><td></td></tr>
-    <tr><td class="paramname">hasArrows</td><td>Set <code>true</code> if the matrix has at least one edge with both vertices different from the source and target. </td></tr>
+    <tr><td class="paramname">distFn</td><td>Distance function defined for all pairs of places.</td></tr>
+    <tr><td class="paramname">arrows</td><td>A valid list of arrows.</td></tr>
+    <tr><td class="paramname">source</td><td>Starting point.</td></tr>
+    <tr><td class="paramname">target</td><td>Destination.</td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a6c1c841e813b1b036342007d04691197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c1c841e813b1b036342007d04691197">&#9670;&nbsp;</a></span>GetSolver()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad8f628f7905bbf3c5c02af9aac2a0083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f628f7905bbf3c5c02af9aac2a0083">&#9670;&nbsp;</a></span>GetSolver()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +179,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="interfaceISolver.html">ISolver</a> SolverFactory.GetSolver </td>
+          <td class="memname"><a class="el" href="interfaceISolver.html">ISolver</a> SolverFactory.GetSolver </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -148,14 +187,107 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<dl class="section return"><dt>Returns</dt><dd>Standard solver based on arrow configuration.</dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a127b873c56dd7417c94e77c7772a3394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127b873c56dd7417c94e77c7772a3394">&#9670;&nbsp;</a></span>arrows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly IReadOnlyList&lt;<a class="el" href="classArrow.html">Arrow</a>&gt; SolverFactory.arrows</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="a21a68ae81456d91e39cdab247fbf7d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a68ae81456d91e39cdab247fbf7d50">&#9670;&nbsp;</a></span>distFn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interfaceIDistanceFunction.html">IDistanceFunction</a> SolverFactory.distFn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49debf14cb0c933f317e7fe43f490618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49debf14cb0c933f317e7fe43f490618">&#9670;&nbsp;</a></span>source</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="classSolverPlace.html">SolverPlace</a> SolverFactory.source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21c3c3c683c7699587b1c4479a5ffc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c3c3c683c7699587b1c4479a5ffc75">&#9670;&nbsp;</a></span>target</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="classSolverPlace.html">SolverPlace</a> SolverFactory.target</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>SmartWalk.Core/Solvers/<a class="el" href="ArrowSolver_8cs.html">ArrowSolver.cs</a></li>
 <li>SmartWalk.Core/Solvers/<a class="el" href="SolverFactory_8cs.html">SolverFactory.cs</a></li>
 </ul>
 </div><!-- contents -->

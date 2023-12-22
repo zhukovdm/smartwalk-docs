@@ -94,10 +94,10 @@ Collaboration diagram for MongoEntityIndex:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a256581dcf9a57e4b2cae1e2bbe5b1709"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classPlace.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#a256581dcf9a57e4b2cae1e2bbe5b1709">GetAround</a> (<a class="el" href="classWgsPoint.html">WgsPoint</a> center, double radius, IReadOnlyList&lt; <a class="el" href="classCategory.html">Category</a> &gt; categories)</td></tr>
-<tr class="memdesc:a256581dcf9a57e4b2cae1e2bbe5b1709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places around a point satisfying specific categories.  <a href="classMongoEntityIndex.html#a256581dcf9a57e4b2cae1e2bbe5b1709">More...</a><br /></td></tr>
+<tr class="memdesc:a256581dcf9a57e4b2cae1e2bbe5b1709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places around a point satisfying specific categories ordered by the crow-fly distances from the center point.  <a href="classMongoEntityIndex.html#a256581dcf9a57e4b2cae1e2bbe5b1709">More...</a><br /></td></tr>
 <tr class="separator:a256581dcf9a57e4b2cae1e2bbe5b1709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9641d0bc81122a4957eb5865d9a40ac"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="classPlace.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#ad9641d0bc81122a4957eb5865d9a40ac">GetWithin</a> (IReadOnlyList&lt; <a class="el" href="classWgsPoint.html">WgsPoint</a> &gt; polygon, IReadOnlyList&lt; <a class="el" href="classCategory.html">Category</a> &gt; categories)</td></tr>
-<tr class="memdesc:ad9641d0bc81122a4957eb5865d9a40ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places satisfying specific categories within a polygon.  <a href="classMongoEntityIndex.html#ad9641d0bc81122a4957eb5865d9a40ac">More...</a><br /></td></tr>
+<tr class="memdesc:ad9641d0bc81122a4957eb5865d9a40ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find places satisfying specific categories within a polygon. The resulting collection is NOT ordered by the distance.  <a href="classMongoEntityIndex.html#ad9641d0bc81122a4957eb5865d9a40ac">More...</a><br /></td></tr>
 <tr class="separator:ad9641d0bc81122a4957eb5865d9a40ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -107,7 +107,7 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a0dc949f27db71ed3ef1bd41d81df43e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#a0dc949f27db71ed3ef1bd41d81df43e9">MongoEntityIndex</a> (IMongoCollection&lt; <a class="el" href="classExtendedPlace.html">ExtendedPlace</a> &gt; collection)</td></tr>
+<tr class="memitem:a0dc949f27db71ed3ef1bd41d81df43e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#a0dc949f27db71ed3ef1bd41d81df43e9">MongoEntityIndex</a> (IMongoCollection&lt; <a class="el" href="classExtendedPlace.html">ExtendedPlace</a> &gt; <a class="el" href="classMongoEntityIndex.html#a5fa8ecefef9f3cb14bda3528b257c4f3">collection</a>)</td></tr>
 <tr class="separator:a0dc949f27db71ed3ef1bd41d81df43e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97192b84f9561f34176a1fb5e3e899e"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="classPlace.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#aa97192b84f9561f34176a1fb5e3e899e">FetchPlaces</a> (<a class="el" href="MongoEntityIndex_8cs.html#ad6cb688fd8ec926161bc0a95972ac453">Filter</a> filter, int? categoryId)</td></tr>
 <tr class="memdesc:aa97192b84f9561f34176a1fb5e3e899e"><td class="mdescLeft">&#160;</td><td class="mdescRight">General-purpose fetch.  <a href="classMongoEntityIndex.html#aa97192b84f9561f34176a1fb5e3e899e">More...</a><br /></td></tr>
@@ -122,8 +122,8 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac7c88ea1ff4ae063b1eb52440c7e16bd"><td class="memItemLeft" align="right" valign="top">readonly IMongoCollection&lt; <a class="el" href="classExtendedPlace.html">ExtendedPlace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#ac7c88ea1ff4ae063b1eb52440c7e16bd">_collection</a></td></tr>
-<tr class="separator:ac7c88ea1ff4ae063b1eb52440c7e16bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa8ecefef9f3cb14bda3528b257c4f3"><td class="memItemLeft" align="right" valign="top">readonly IMongoCollection&lt; <a class="el" href="classExtendedPlace.html">ExtendedPlace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMongoEntityIndex.html#a5fa8ecefef9f3cb14bda3528b257c4f3">collection</a></td></tr>
+<tr class="separator:a5fa8ecefef9f3cb14bda3528b257c4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0dc949f27db71ed3ef1bd41d81df43e9"></a>
@@ -301,7 +301,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Find places around a point satisfying specific categories. </p>
+<p>Find places around a point satisfying specific categories ordered by the crow-fly distances from the center point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">center</td><td>Geodetic point on the Earth.</td></tr>
@@ -375,7 +375,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Find places satisfying specific categories within a polygon. </p>
+<p>Find places satisfying specific categories within a polygon. The resulting collection is NOT ordered by the distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">polygon</td><td>Closed polygon (an approximation of a bounding ellipse).</td></tr>
@@ -390,8 +390,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac7c88ea1ff4ae063b1eb52440c7e16bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c88ea1ff4ae063b1eb52440c7e16bd">&#9670;&nbsp;</a></span>_collection</h2>
+<a id="a5fa8ecefef9f3cb14bda3528b257c4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa8ecefef9f3cb14bda3528b257c4f3">&#9670;&nbsp;</a></span>collection</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,7 +400,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">readonly IMongoCollection&lt;<a class="el" href="classExtendedPlace.html">ExtendedPlace</a>&gt; MongoEntityIndex._collection</td>
+          <td class="memname">readonly IMongoCollection&lt;<a class="el" href="classExtendedPlace.html">ExtendedPlace</a>&gt; MongoEntityIndex.collection</td>
         </tr>
       </table>
   </td>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['haversinedistancematrix_434',['HaversineDistanceMatrix',['../classHaversineDistanceMatrix.html',1,'']]]
+  ['haversinedistancefunction_423',['HaversineDistanceFunction',['../classHaversineDistanceFunction.html',1,'']]]
 ];
