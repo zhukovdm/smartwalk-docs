@@ -85,7 +85,7 @@ By default, personal data is stored locally on your device in [IndexedDB](https:
 Solid enables you to regain true data ownership. Learn more about this technology at:
 
 <p align="center">
-<a href="https://solidproject.org/about" target="_blank" rel="noopener noreferrer">https://solidproject.org/about</a>.
+  <a href="https://solidproject.org/about">https://solidproject.org/about</a>.
 </p>
 
 *SmartWalk* supports [Inrupt PodSpaces](https://ap.inrupt.com/) out of the box, which is currently in Developer Preview. The application has also been tested on [Community](https://github.com/CommunitySolidServer/) and [Node](https://github.com/nodeSolidServer/) Solid servers, yielding positive outcomes.
