@@ -10,6 +10,6 @@ This page contains the documentation for the [**SmartWalk**](https://www.github.
 
 ## Credits
 
-Map tiles in the user interface are attributed to [&#169;OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+Pictures and diagrams were created with [Draw.io](https://draw.io/) drawing software.
 
-Other pictures and diagrams were created with [Draw.io](https://draw.io/) drawing software.
+Map tiles in the user interface are attributed to [&#169;OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
