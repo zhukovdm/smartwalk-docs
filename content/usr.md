@@ -1,6 +1,6 @@
 # User's documentation
 
-The application provides the same level of user experience on both *desktop* and *mobile* devices.
+The application provides the same level of user experience on *desktop* and *mobile* devices.
 
 ## Route search
 
