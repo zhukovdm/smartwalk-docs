@@ -28,4 +28,4 @@ Besides routes, the application also supports *place* and standard location-base
 
 - The pictures and diagrams were created with [Draw.io](https://draw.io/) drawing software.
 
-- Map tiles in the user interface are attributed to [&#169;OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+- Map tiles in the user interface are attributed to [&#169; OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
