@@ -65,7 +65,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classSearchRoutesQueryParser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SearchRoutesQueryParser Class Reference</div>  </div>
@@ -117,12 +116,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a0f81d5ddf1f3a19e61c39f17aa07beff inherit pro_methods_classQueryParserBase"><td class="memItemLeft" align="right" valign="top">abstract bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQueryParserBase.html#a0f81d5ddf1f3a19e61c39f17aa07beff">PostValidate</a> (D queryObject)</td></tr>
 <tr class="memdesc:a0f81d5ddf1f3a19e61c39f17aa07beff inherit pro_methods_classQueryParserBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional domain-specific validation (e.g. arrow configuration).  <a href="classQueryParserBase.html#a0f81d5ddf1f3a19e61c39f17aa07beff">More...</a><br /></td></tr>
 <tr class="separator:a0f81d5ddf1f3a19e61c39f17aa07beff inherit pro_methods_classQueryParserBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a2d456a1afda07e2888cde020a005f3a6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSearchRoutesQueryParser.html#a2d456a1afda07e2888cde020a005f3a6">ValidateRouteMaxDistance</a> (<a class="el" href="classWgsPoint.html">WgsPoint</a> source, <a class="el" href="classWgsPoint.html">WgsPoint</a> target, double maxDistance)</td></tr>
-<tr class="memdesc:a2d456a1afda07e2888cde020a005f3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">False if the crow-fly distance between a source and target exceeds maximum allowed distance (network distance &gt;= crow-fly distance).  <a href="classSearchRoutesQueryParser.html#a2d456a1afda07e2888cde020a005f3a6">More...</a><br /></td></tr>
-<tr class="separator:a2d456a1afda07e2888cde020a005f3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -183,59 +176,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2d456a1afda07e2888cde020a005f3a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d456a1afda07e2888cde020a005f3a6">&#9670;&nbsp;</a></span>ValidateRouteMaxDistance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool SearchRoutesQueryParser.ValidateRouteMaxDistance </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classWgsPoint.html">WgsPoint</a>&#160;</td>
-          <td class="paramname"><em>source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classWgsPoint.html">WgsPoint</a>&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>maxDistance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>False if the crow-fly distance between a source and target exceeds maximum allowed distance (network distance &gt;= crow-fly distance). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Starting point.</td></tr>
-    <tr><td class="paramname">target</td><td>Destination.</td></tr>
-    <tr><td class="paramname">maxDistance</td><td>Maximum allowed distance.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

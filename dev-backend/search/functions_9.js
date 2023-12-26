@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['main_632',['Main',['../classProgram.html#ada72f8d1518f89bc2e6ad807d5059564',1,'Program.Main()'],['../classPruningRadixTrie_1_1Benchmark_1_1Program.html#a949e5816d10b82e867c2501f87424b39',1,'PruningRadixTrie.Benchmark.Program.Main()']]],
-  ['matrixdistancefunction_633',['MatrixDistanceFunction',['../classMatrixDistanceFunction.html#a30f265a0b28443d27cddeab084fe0fb2',1,'MatrixDistanceFunction']]],
-  ['midpoint_634',['Midpoint',['../classSpherical.html#a7c825d2df20acf1520bb85c1bbacd88d',1,'Spherical']]],
-  ['mongoentityindex_635',['MongoEntityIndex',['../classMongoEntityIndex.html#a0dc949f27db71ed3ef1bd41d81df43e9',1,'MongoEntityIndex']]],
-  ['mongoentitystore_636',['MongoEntityStore',['../classMongoEntityStore.html#a3d7c52c5eb5b3184850ed6cb85cdb7e9',1,'MongoEntityStore']]]
+  ['main_631',['Main',['../classProgram.html#ada72f8d1518f89bc2e6ad807d5059564',1,'Program.Main()'],['../classPruningRadixTrie_1_1Benchmark_1_1Program.html#a949e5816d10b82e867c2501f87424b39',1,'PruningRadixTrie.Benchmark.Program.Main()']]],
+  ['matrixdistancefunction_632',['MatrixDistanceFunction',['../classMatrixDistanceFunction.html#a30f265a0b28443d27cddeab084fe0fb2',1,'MatrixDistanceFunction']]],
+  ['midpoint_633',['Midpoint',['../classSpherical.html#a7c825d2df20acf1520bb85c1bbacd88d',1,'Spherical']]],
+  ['mongoentityindex_634',['MongoEntityIndex',['../classMongoEntityIndex.html#a0dc949f27db71ed3ef1bd41d81df43e9',1,'MongoEntityIndex']]],
+  ['mongoentitystore_635',['MongoEntityStore',['../classMongoEntityStore.html#a3d7c52c5eb5b3184850ed6cb85cdb7e9',1,'MongoEntityStore']]]
 ];
