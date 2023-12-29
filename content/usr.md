@@ -80,9 +80,9 @@ Create a custom place (home, work, etc.) with a name and location through the si
 
 ## Solid pod (advanced)
 
-By default, personal data is stored locally on your device in [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), a standardized in-browser database. Additionally, the application supports *decentralized* Solid pods.
+By default, personal data is stored locally on your device in [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), a standardized in-browser database. Additionally, the application supports *external* Solid pods.
 
-Solid enables you to regain true data ownership. Learn more about this technology at:
+Solid enables you to regain true data ownership. Learn more about this technology at
 
 <p align="center">
   <a href="https://solidproject.org/about">https://solidproject.org/about</a>.
