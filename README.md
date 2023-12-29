@@ -12,7 +12,7 @@ $ mkdocs serve
 
 ## Deploy
 
-Clone [smartwalk](https://github.com/zhukovdm/smartwalk.git) repository into `../`.
+Clone the [SmartWalk](https://github.com/zhukovdm/smartwalk.git) repository into `../`.
 
 Restore dependencies:
 
