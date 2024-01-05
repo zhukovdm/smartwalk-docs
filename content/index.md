@@ -6,7 +6,7 @@ Check out the [**Demo**](https://smartwalk.vercel.app/) (although *not* connecte
 
 [**User's documentation**](./usr.md) gives an overview of how to use the application and accomplish basic tasks, such as searching for and managing entities.
 
-[**Programmer's guide**](./prg.md) brings clarity into the application architecture and code organization. Code documentation for the frontend and backend can be accessed at [**prg-frontend**](https://zhukovdm.github.io/smartwalk-docs/prg-frontend/) and [**prg-backend**](https://zhukovdm.github.io/smartwalk-docs/prg-backend/), respectively.
+[**Programmer's guide**](./prg.md) brings clarity into the application architecture and code organization. Code documentation for the frontend and backend can be accessed at [**prg-frontend**](./prg-frontend) and [**prg-backend**](./prg-backend), respectively.
 
 [**Administrator's guide**](./adm.md) provides instructions for preparing a dataset, running the application in development or production mode on a personal computer, and troubleshooting potential issues.
 
