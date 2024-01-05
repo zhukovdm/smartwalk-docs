@@ -15,3 +15,5 @@ nav:
   - User's documentation: usr.md
   - Programmer's guide: prg.md
   - Administrator's guide: adm.md
+
+use_directory_urls: false
