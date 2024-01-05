@@ -180,6 +180,8 @@ $ make restore-init && make database-init && make restore
 
 This procedure expects `keyword.txt` and `place.txt` to be in the `./assets/dump/` folder.
 
+**ADVICE**: Before starting the application in development or production mode, stop the database container and double-check that data for the routing engine is available.
+
 Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). Those having `prod` in their names are the most data-rich covering beautiful [Prague](https://en.wikipedia.org/wiki/Prague).
 
 If necessary, unpack a downloaded archive as follows:
