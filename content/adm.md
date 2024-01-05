@@ -175,10 +175,10 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 Ensure that a database container is up and running, see [**Entity store and index**](#entity-store-and-index) for more details. Clean up the database and restore the state from files:
 
 ```bash
-$ make init && make database-init && make restore
+$ make restore-init && make database-init && make restore
 ```
 
-The `restore` procedure expects `keyword.txt` and `place.txt` to be in the `./assets/dump/` folder. Otherwise, it fails.
+This procedure expects `keyword.txt` and `place.txt` to be in the `./assets/dump/` folder.
 
 Examples of archived dumps can be found [here](https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&dl=0). Those having `prod` in their names are the most data-rich covering beautiful [Prague](https://en.wikipedia.org/wiki/Prague).
 
