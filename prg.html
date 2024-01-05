@@ -8,10 +8,10 @@
   
   
   
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.ico">
   <title>Programmer's guide - SmartWalk Docs</title>
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
@@ -21,8 +21,8 @@
     var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -36,9 +36,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> SmartWalk Docs</a>
+        <a href="." class="icon icon-home"> SmartWalk Docs</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -46,15 +46,15 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../usr/">User's documentation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="usr.html">User's documentation</a>
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Programmer's guide</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="prg.html">Programmer's guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
@@ -76,7 +76,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../adm/">Administrator's guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="adm.html">Administrator's guide</a>
                     </li>
                 </ul>
       </div>
@@ -88,7 +88,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">SmartWalk Docs</a>
+        <a href=".">SmartWalk Docs</a>
       </nav>
 
       
@@ -96,7 +96,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+    <li><a href=".">Docs</a> &raquo;</li>
     
       
     
@@ -117,9 +117,9 @@
                 <h1 id="programmers-guide">Programmer's guide</h1>
 <p>This guide introduces the main parts of the application and provides sufficient implementation details to ensure a gentle learning curve for novice contributors.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>To acquire the tools necessary for setting up the environment, preparing the dataset, and writing and testing source code, follow the steps outlined in <a href="../adm/#prerequisites"><strong>Prerequisites</strong></a>.</p>
+<p>To acquire the tools necessary for setting up the environment, preparing the dataset, and writing and testing source code, follow the steps outlined in <a href="adm.html#prerequisites"><strong>Prerequisites</strong></a>.</p>
 <h2 id="environment">Environment</h2>
-<p>Learn more about the development environment at <a href="../adm/#running-the-app"><strong>Running the app</strong></a>. This section explains how to configure, start, and terminate individual parts of the system.</p>
+<p>Learn more about the development environment at <a href="adm.html#running-the-app"><strong>Running the app</strong></a>. This section explains how to configure, start, and terminate individual parts of the system.</p>
 <h2 id="repository-structure">Repository structure</h2>
 <p>The repository has the structure depicted below. Please note that the list is <em>not</em> exhaustive.</p>
 <pre><code class="language-txt">./
@@ -163,12 +163,12 @@
 </code></pre>
 <h2 id="architecture">Architecture</h2>
 <p>The architecture of the application is demonstrated using elements of the <a href="https://c4model.com/">C4 model</a>. <em>SmartWalk</em> is composed of <em>four</em> interconnected containers: the <code>Frontend</code>, <code>Backend</code>, <code>Database</code>, and <code>Routing</code>. The first two are containerized applications from the <code>./app/</code> folder. The last ones are containers based on <a href="https://hub.docker.com/r/osrm/osrm-backend">osrm-backend</a> and <a href="https://hub.docker.com/_/mongo">mongo</a> Docker images that supply business logic with actual data.</p>
-<p><img alt="container diagram" src="../img/c4-container-diagram.svg" /></p>
+<p><img alt="container diagram" src="img/c4-container-diagram.svg" /></p>
 <h2 id="frontend">Frontend</h2>
 <p>The frontend is a React-based single-page application, serving as an entry point and offering a rich user experience. Its source code is located in the <code>./app/frontend/</code> folder.</p>
 <p><span style="color: red"><strong>(!)</strong></span> Code documentation generated by <a href="https://typedoc.org/">TypeDoc</a> is available at <a href="./prg-frontend"><strong>prg-frontend</strong></a>.</p>
 <p>The following abstractions carry out the intended functionality.</p>
-<p><img alt="component diagram frontend" src="../img/c4-component-diagram-frontend.svg" /></p>
+<p><img alt="component diagram frontend" src="img/c4-component-diagram-frontend.svg" /></p>
 <p><code>Map</code> is responsible for loading tiles and drawing markers and vector geometries on a map. The <code>LeafletMap</code> is a concrete implementation capable of interacting with the <code>OSM</code> map.</p>
 <p><code>Storage</code> is an abstraction that unifies methods for accessing both device storage and decentralized Solid pod. Data are stored on a device in IndexedDB, a standardized in-browser database, with the help of the <code>DeviceStorage</code> and pushed to a pod by the <code>SolidStorage</code>.</p>
 <p><em>Please note that IndexedDB and a Solid pod are mutually exclusive storages.</em></p>
@@ -187,7 +187,7 @@
 </ul>
 <p><span style="color: red"><strong>(!)</strong></span> Code documentation generated by <a href="https://www.doxygen.nl/">Doxygen</a> is available at <a href="./prg-backend"><strong>prg-backend</strong></a>.</p>
 <p>The application comprises <em>five</em> request pipelines with the following generic structure.</p>
-<p><img alt="component diagram backend" src="../img/c4-component-diagram-backend.svg" /></p>
+<p><img alt="component diagram backend" src="img/c4-component-diagram-backend.svg" /></p>
 <p><code>TController</code> receives a request object and performs validation to reject malformed input early.</p>
 <p>Well-formed data is then handed over to the corresponding domain-level <code>THandler</code>, a realization of a targeted use case.</p>
 <p><code>TResponder</code> is responsible for completing the response object based on three possible outcomes: a valid result of a calculation, an internal server error, or failed validation.</p>
@@ -207,7 +207,7 @@
 <p>The API is documented using the Swashbuckle library, a toolset compatible with the OpenAPI specification. Swagger documentation is available at <a href="http://localhost:5017/swagger/v1/swagger.yaml">swagger.yaml</a> whenever <code>Backend</code> container is up and running in development mode or at <a href="https://app.swaggerhub.com/apis/zhukovdm/smartwalk/">SwaggerHub</a>.</p>
 <p><strong>ADVICE:</strong> Unfortunately, not all endpoints provide examples. To support caching, <em>search queries</em> are passed around as serialized and percent-encoded JSON objects. Their internal structure is given in <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/routes.json">routes.json</a>, <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/places.json">places.json</a>, and <a href="https://github.com/zhukovdm/smartwalk/tree/main/misc/query/direcs.json">direcs.json</a>. Alternatively, you could refer to type definitions.</p>
 <h2 id="data-pipelines">Data pipelines</h2>
-<p>Besides the application source code, there are small task-oriented programs in the <code>./data/</code> folder to carry out the <a href="../adm/#data-preparation"><strong>Data preparation</strong></a> phase.</p>
+<p>Besides the application source code, there are small task-oriented programs in the <code>./data/</code> folder to carry out the <a href="adm.html#data-preparation"><strong>Data preparation</strong></a> phase.</p>
 <ul>
 <li>
 <p><code>taginfo/</code> loads key statistics from Taginfo into key-specific .json files.</p>
@@ -248,10 +248,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../adm/" class="btn btn-neutral float-right" title="Administrator's guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="adm.html" class="btn btn-neutral float-right" title="Administrator's guide">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../usr/" class="btn btn-neutral" title="User's documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="usr.html" class="btn btn-neutral" title="User's documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -279,17 +279,17 @@
           <a href="https://github.com/zhukovdm/smartwalk-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../usr/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="usr.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../adm/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="adm.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../js/extra.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="js/extra.js" defer></script>
+      <script src="search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

@@ -8,10 +8,10 @@
   
   
   
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.ico">
   <title>Administrator's guide - SmartWalk Docs</title>
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
@@ -21,8 +21,8 @@
     var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -36,9 +36,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> SmartWalk Docs</a>
+        <a href="." class="icon icon-home"> SmartWalk Docs</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -46,19 +46,19 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../usr/">User's documentation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="usr.html">User's documentation</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../prg/">Programmer's guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="prg.html">Programmer's guide</a>
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Administrator's guide</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="adm.html">Administrator's guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
@@ -110,7 +110,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">SmartWalk Docs</a>
+        <a href=".">SmartWalk Docs</a>
       </nav>
 
       
@@ -118,7 +118,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+    <li><a href=".">Docs</a> &raquo;</li>
     
       
     
@@ -223,7 +223,7 @@ $ cd ./smartwalk/
 <h3 id="incremental-updates">Incremental updates</h3>
 <p>The system supports incremental updates to incorporate new versions of datasets. It is possible to re-run blue-highlighted commands with no impact on data integrity. The programs are designed to update only defined properties without replacing entities, acting as an <a href="https://en.wikipedia.org/wiki/Idempotence#Idempotent_functions">idempotent</a> function.</p>
 <p><code>advice</code> should be re-generated whenever the database state is altered.</p>
-<p><img alt="step dependencies" src="../img/data-prep-deps.svg" /></p>
+<p><img alt="step dependencies" src="img/data-prep-deps.svg" /></p>
 <h3 id="dumping-database">Dumping database</h3>
 <p>Dump the current database state:</p>
 <pre><code class="language-bash">$ make dump
@@ -300,7 +300,7 @@ $ tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 <p>The source code uses <code>REACT_APP_SMARTWALK_API_ORIGIN</code> environment variable. Set its value in the <a href="https://github.com/zhukovdm/smartwalk/blob/main/app/frontend/.env.development">.env.development</a> file if you wish to run backend on another port.</p>
 <h3 id="production-environment">Production environment</h3>
 <p>This environment is a tightly coupled bundle consisting of four interconnected Docker containers; its detailed schema is shown in the picture below.</p>
-<p><img alt="docker production setup" src="../img/docker-production-setup.svg" /></p>
+<p><img alt="docker production setup" src="img/docker-production-setup.svg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>database</code> exposes port <code>27017</code> for manual diagnostic and performance testing. Hide it if none of the mentioned reasons is your case.</p>
@@ -345,7 +345,7 @@ $ docker image rm smartwalk/routing
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../prg/" class="btn btn-neutral" title="Programmer's guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="prg.html" class="btn btn-neutral" title="Programmer's guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -373,15 +373,15 @@ $ docker image rm smartwalk/routing
           <a href="https://github.com/zhukovdm/smartwalk-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../prg/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="prg.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../js/extra.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="js/extra.js" defer></script>
+      <script src="search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
