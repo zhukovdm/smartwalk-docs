@@ -58,7 +58,7 @@ Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM
 Create folders for storing data, and restore project dependencies:
 
 ```bash
-$ make init
+$ make init-data
 ```
 
 ### Routing engine
@@ -88,7 +88,7 @@ $ docker compose up -d
 Clean up all previous data, create new collections and indexes:
 
 ```bash
-$ make database-init
+$ make init-database
 ```
 
 Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in the `./assets/taginfo/` folder:
@@ -175,7 +175,7 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 Ensure that a database container is up and running, see [**Entity store and index**](#entity-store-and-index) for more details. Clean up the database and restore the state from files:
 
 ```bash
-$ make restore-init && make database-init && make restore
+$ make init-restore && make init-database && make restore
 ```
 
 This procedure expects `keyword.txt` and `place.txt` to be in the `./assets/dump/` folder.
@@ -193,7 +193,7 @@ $ tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 
 ## Running the app
 
-The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the `smartwalk` repository and all relevant data have been extracted or restored and are available in their respective folders.
+The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the `smartwalk` repository, and key datasets have been prepared or restored and are available in their respective folders.
 
 ### Development environment
 
@@ -207,6 +207,12 @@ There are *four* system components involved in the setup: the frontend, backend,
 | routing   | localhost:5000    | Routing engine                        |
 | backend   | localhost:5017    | Application logic <s>(hot reload)</s> |
 | frontend  | localhost:3000    | Static files (hot reload)             |
+
+Restore `backend` and `frontend` dependencies:
+
+```bash
+$ make init-dev
+```
 
 !!! note
     For convenience, components can be started and stopped directly from the `smartwalk` root folder. Please refer to [Makefile](https://github.com/zhukovdm/smartwalk/blob/main/Makefile). Recipe names follow the pattern `[component_name]-dev[-stop]`.
