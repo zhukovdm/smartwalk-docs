@@ -19,7 +19,7 @@ var searchData=
   ['getshortestpaths_140',['GetShortestPaths',['../interfaceIRoutingEngine.html#a4526100cc18da3d9e9b0635f4bc10490',1,'IRoutingEngine.GetShortestPaths()'],['../classOsrmRoutingEngine.html#a514d95a15a8e8939ccda64f31cc1af0a',1,'OsrmRoutingEngine.GetShortestPaths()']]],
   ['getsolver_141',['GetSolver',['../classSolverFactory.html#ad8f628f7905bbf3c5c02af9aac2a0083',1,'SolverFactory']]],
   ['getsolverplaces_142',['GetSolverPlaces',['../classSearchRoutesHandler.html#afe718566a5453ec49561e0e71fd073d7',1,'SearchRoutesHandler']]],
-  ['getting_20started_143',['Getting Started',['../md_README.html',1,'']]],
+  ['getting_20started_143',['Getting Started',['../index.html',1,'']]],
   ['gettopk_144',['GetTopK',['../interfaceIKeywordAdvicer.html#a8ceabd02ad8c30f6a2a81cfabe43662e',1,'IKeywordAdvicer']]],
   ['gettopktermsforprefix_145',['GetTopkTermsForPrefix',['../classPruningRadixTrie_1_1PruningRadixTrie.html#a12fdb10ef620e528d92639e666aeacf2',1,'PruningRadixTrie::PruningRadixTrie']]],
   ['getwithin_146',['GetWithin',['../interfaceIEntityIndex.html#af11fd40928ffc40a30df23c19cddebc8',1,'IEntityIndex.GetWithin()'],['../classMongoEntityIndex.html#ad9641d0bc81122a4957eb5865d9a40ac',1,'MongoEntityIndex.GetWithin()']]]

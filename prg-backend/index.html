@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SmartWalk: Main Page</title>
+<title>SmartWalk: Getting Started</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,11 +60,18 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">SmartWalk Documentation</div>  </div>
+<div class="title">Getting Started </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Start the app in the development mode on <a href="http://localhost:5017/:">http://localhost:5017/:</a></p>
+<div class="fragment"><div class="line">$ dotnet run --project ./SmartWalk.Api/SmartWalk.Api.csproj</div>
+</div><!-- fragment --><p>Run unit tests implemented using the <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest">MSTest</a> testing framework to ensure the correctness of the new and existing functionality:</p>
+<div class="fragment"><div class="line">$ dotnet test</div>
+</div><!-- fragment --><p>Generate documentation into the <code>./docs</code> folder:</p>
+<div class="fragment"><div class="line">$ doxygen</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
