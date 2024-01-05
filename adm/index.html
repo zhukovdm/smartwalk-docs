@@ -234,7 +234,7 @@ $ cd ./smartwalk/
 $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 </code></pre>
 <h3 id="restoring-database">Restoring database</h3>
-<p>Ensure that the database container is up and running, see <a href="#entity-store-and-index"><strong>Entity store and index</strong></a> for more details. Clean up the database and restore the state from files:</p>
+<p>Ensure that a database container is up and running, see <a href="#entity-store-and-index"><strong>Entity store and index</strong></a> for more details. Clean up the database and restore the state from files:</p>
 <pre><code class="language-bash">$ make init &amp;&amp; make database-init &amp;&amp; make restore
 </code></pre>
 <p>The <code>restore</code> procedure expects <code>keyword.txt</code> and <code>place.txt</code> to be in the <code>./assets/dump/</code> folder. Otherwise, it fails.</p>
