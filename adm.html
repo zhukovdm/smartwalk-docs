@@ -238,6 +238,7 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 <pre><code class="language-bash">$ make restore-init &amp;&amp; make database-init &amp;&amp; make restore
 </code></pre>
 <p>This procedure expects <code>keyword.txt</code> and <code>place.txt</code> to be in the <code>./assets/dump/</code> folder.</p>
+<p><strong>ADVICE</strong>: Before starting the application in development or production mode, stop the database container and double-check that data for the routing engine is available.</p>
 <p>Examples of archived dumps can be found <a href="https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&amp;dl=0">here</a>. Those having <code>prod</code> in their names are the most data-rich covering beautiful <a href="https://en.wikipedia.org/wiki/Prague">Prague</a>.</p>
 <p>If necessary, unpack a downloaded archive as follows:</p>
 <pre><code class="language-bash">$ cd ./assets/dump/
