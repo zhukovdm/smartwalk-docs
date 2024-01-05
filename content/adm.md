@@ -172,7 +172,7 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 
 ### Restoring database
 
-Ensure that the database container is up and running, see [**Entity store and index**](#entity-store-and-index) for more details. Clean up the database and restore the state from files:
+Ensure that a database container is up and running, see [**Entity store and index**](#entity-store-and-index) for more details. Clean up the database and restore the state from files:
 
 ```bash
 $ make init && make database-init && make restore
