@@ -176,7 +176,7 @@ $ cd ./smartwalk/
 </code></pre>
 <p>Open <code>Makefile</code> and set the value of <code>REGION_FILE</code> accordingly. Some of the <code>OSM</code> dumps are quite large and additional refinement might be necessary. There are four variables <code>REGION_X</code>, where suffix <code>X</code> can be any of <code>W</code> (West), <code>N</code> (North), <code>E</code> (East), or <code>S</code> (South), defining a bounding box. Entities outside this box are filtered out. To switch off filtering, set <code>W=-180.0</code>, <code>N=85.06</code>, <code>E=180.0</code>, and <code>S=-85.06</code> (see <a href="https://epsg.io/3857">EPSG3857</a> for details).</p>
 <p>Create folders for storing data, and restore project dependencies:</p>
-<pre><code class="language-bash">$ make init
+<pre><code class="language-bash">$ make init-data
 </code></pre>
 <h3 id="routing-engine">Routing engine</h3>
 <p>Build a data structure for the routing engine:</p>
@@ -191,7 +191,7 @@ $ cd ./smartwalk/
 </code></pre>
 <p><strong>ADVICE:</strong> Enter <code>docker container ls</code> repeatedly to print out the list of existing containers. Wait until <code>smartwalk-database</code> is healthy.</p>
 <p>Clean up all previous data, create new collections and indexes:</p>
-<pre><code class="language-bash">$ make database-init
+<pre><code class="language-bash">$ make init-database
 </code></pre>
 <p>Obtain the most popular <code>OSM</code> keys from <a href="https://taginfo.openstreetmap.org/taginfo/apidoc">Taginfo</a> and store results in the <code>./assets/taginfo/</code> folder:</p>
 <pre><code class="language-bash">$ make taginfo
@@ -235,7 +235,7 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 </code></pre>
 <h3 id="restoring-database">Restoring database</h3>
 <p>Ensure that a database container is up and running, see <a href="#entity-store-and-index"><strong>Entity store and index</strong></a> for more details. Clean up the database and restore the state from files:</p>
-<pre><code class="language-bash">$ make restore-init &amp;&amp; make database-init &amp;&amp; make restore
+<pre><code class="language-bash">$ make init-restore &amp;&amp; make init-database &amp;&amp; make restore
 </code></pre>
 <p>This procedure expects <code>keyword.txt</code> and <code>place.txt</code> to be in the <code>./assets/dump/</code> folder.</p>
 <p><strong>ADVICE</strong>: Before starting the application in development or production mode, stop the database container and double-check that data for the routing engine is available.</p>
@@ -245,7 +245,7 @@ $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 $ tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 </code></pre>
 <h2 id="running-the-app">Running the app</h2>
-<p>The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the <code>smartwalk</code> repository and all relevant data have been extracted or restored and are available in their respective folders.</p>
+<p>The purpose of this section is to explain how to start the system in development and production modes. We assume that you are in the root folder of the <code>smartwalk</code> repository, and key datasets have been prepared or restored and are available in their respective folders.</p>
 <h3 id="development-environment">Development environment</h3>
 <p>This environment is intended primarily for developers and testers. It enables controlling parts of the system independently.</p>
 <p>There are <em>four</em> system components involved in the setup: the frontend, backend, database, and routing engine. The first two run directly in the terminal, while the last two are Docker containers. The table below summarizes their roles and the mapping of system ports.</p>
@@ -280,6 +280,9 @@ $ tar -xzf smartwalk-[kind]-[timestamp].tar.gz
 </tr>
 </tbody>
 </table>
+<p>Restore <code>backend</code> and <code>frontend</code> dependencies:</p>
+<pre><code class="language-bash">$ make init-dev
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For convenience, components can be started and stopped directly from the <code>smartwalk</code> root folder. Please refer to <a href="https://github.com/zhukovdm/smartwalk/blob/main/Makefile">Makefile</a>. Recipe names follow the pattern <code>[component_name]-dev[-stop]</code>.</p>
