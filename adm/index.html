@@ -234,10 +234,10 @@ $ cd ./smartwalk/
 $ tar -czf smartwalk-[kind]-[timestamp].tar.gz *.txt
 </code></pre>
 <h3 id="restoring-database">Restoring database</h3>
-<p>Clean up the database and restore the state from files:</p>
-<pre><code class="language-bash">$ make database-init &amp;&amp; make restore
+<p>Ensure that the database container is up and running, see <a href="#entity-store-and-index"><strong>Entity store and index</strong></a> for more details. Clean up the database and restore the state from files:</p>
+<pre><code class="language-bash">$ make init &amp;&amp; make database-init &amp;&amp; make restore
 </code></pre>
-<p>The <code>restore</code> procedure expects <em>both files</em> to be in the <code>./assets/dump/</code> folder. Otherwise, it fails.</p>
+<p>The <code>restore</code> procedure expects <code>keyword.txt</code> and <code>place.txt</code> to be in the <code>./assets/dump/</code> folder. Otherwise, it fails.</p>
 <p>Examples of archived dumps can be found <a href="https://www.dropbox.com/scl/fo/phyv4l2649p3oqy4345wp/h?rlkey=jbg9obkzk6izoy8vlulveznq9&amp;dl=0">here</a>. Those having <code>prod</code> in their names are the most data-rich covering beautiful <a href="https://en.wikipedia.org/wiki/Prague">Prague</a>.</p>
 <p>If necessary, unpack a downloaded archive as follows:</p>
 <pre><code class="language-bash">$ cd ./assets/dump/
