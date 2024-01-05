@@ -1,5 +1,6 @@
 site_name: SmartWalk Docs
 repo_url: https://github.com/zhukovdm/smartwalk-docs
+edit_uri: blob/main/content/
 
 docs_dir: content
 theme: readthedocs
