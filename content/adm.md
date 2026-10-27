@@ -24,8 +24,8 @@ Please ensure that the following programs are installed on the target system:
 Clone the repository with *submodules* and navigate to its root folder:
 
 ```bash
-$ git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
-$ cd ./smartwalk/
+git clone --recurse-submodules https://github.com/zhukovdm/smartwalk.git
+cd ./smartwalk/
 ```
 
 **ADVICE:** Docker-related commands require the current user to be a member of the `docker` group to avoid using `sudo` (or similar) repeatedly. See details at [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
@@ -42,15 +42,15 @@ This section explains how to prepare data for two system components: the [**Data
 Navigate to the `data` folder, assuming you are in the root folder of the `smartwalk` repository:
 
 ```bash
-$ cd ./data/
+cd ./data/
 ```
 
 Decide which part of the world you are interested in. Download the corresponding `pbf`-file at [Geofabrik](https://download.geofabrik.de/), and store it in the `./assets/osm-maps/` folder. As an example, the following command makes use of the `wget` utility to obtain the latest dump of the Czech Republic:
 
 ```bash
-$ wget \
-    -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
-    https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
+wget \
+  -O ./assets/osm-maps/czech-republic-latest.osm.pbf \
+  https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
 ```
 
 Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM` dumps are quite large and additional refinement might be necessary. There are four variables `REGION_X`, where suffix `X` can be any of `W` (West), `N` (North), `E` (East), or `S` (South), defining a bounding box. Entities outside this box are filtered out. To switch off filtering, set `W=-180.0`, `N=85.06`, `E=180.0`, and `S=-85.06` (see [EPSG3857](https://epsg.io/3857) for details).
@@ -58,7 +58,7 @@ Open `Makefile` and set the value of `REGION_FILE` accordingly. Some of the `OSM
 Create folders for storing data, and restore project dependencies:
 
 ```bash
-$ make init-data
+make init-data
 ```
 
 ### Routing engine
@@ -66,10 +66,10 @@ $ make init-data
 Build a data structure for the routing engine:
 
 ```bash
-$ make routing-engine
+make routing
 ```
 
-The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend/) and builds the search structure in several consecutive phases. The results are stored in the `./assets/routing-engine/` folder.
+The command pulls [this Docker image](https://github.com/project-osrm/osrm-backend/pkgs/container/osrm-backend) and builds the search structure in several consecutive phases. The results are stored in the `./assets/routing/` folder.
 
 **ADVICE:** An instance of OSRM backend is able to load [only one](https://help.openstreetmap.org/questions/64867/osrm-routed-for-multiple-countries) `osrm`-file at a time. This limitation can be overcome via merging (see [osmosis](https://gis.stackexchange.com/a/242880)).
 
@@ -77,10 +77,17 @@ The command pulls [this Docker image](https://hub.docker.com/r/osrm/osrm-backend
 
 ### Entity store and index
 
-Start up a [containerized](https://hub.docker.com/_/mongo/) database instance:
+Create external drives independent of images:
 
 ```bash
-$ docker compose up -d
+docker volume create smartwalk-mongo-conf
+docker volume create smartwalk-mongo-data
+```
+
+Start up a MongoDB instance on localhost:27017:
+
+```bash
+docker compose -f docker-compose.yaml up -d
 ```
 
 **ADVICE:** Enter `docker container ls` repeatedly to print out the list of existing containers. Wait until `smartwalk-database` is healthy.
@@ -88,7 +95,7 @@ $ docker compose up -d
 Clean up all previous data, create new collections and indexes:
 
 ```bash
-$ make init-database
+make init-database
 ```
 
 Obtain the most popular `OSM` keys from [Taginfo](https://taginfo.openstreetmap.org/taginfo/apidoc) and store results in the `./assets/taginfo/` folder:
@@ -280,6 +287,14 @@ CONTAINER ID   IMAGE                    ...   NAMES
 ...            ...                      ...   ...
 
 $ docker inspect --format "{{json .State.Health }}" [container_name]
+```
+
+<font size="4">**Docker setup takes too much resources**</font>
+
+Check docker disk usage with the following command:
+
+```bash
+docker system df --verbose
 ```
 
 <font size="4">**Nothing seems to help**</font>
